@@ -1,0 +1,21 @@
+.welcome{
+  align-self: center;
+  display: flex;
+  flex-direction: row;
+  position: static;
+  margin-top: 30%;
+}
+.logoImg{
+  width: 11rem;
+  height: auto;
+}
+.head1{
+  color:white;
+  line-height: 5rem;
+}
+h1{
+  font-size: 8rem;
+}
+h2{
+  font-size: 4rem;
+}
