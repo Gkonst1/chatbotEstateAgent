@@ -1,14 +1,14 @@
 import React from "react";
 import './landlord.css';
 import Header from './header';
+import Button from '@material-ui/core/Button';
 
 class Landlord extends React.Component{
   render(){
     return (
-      <h1>Hello!</h1>
-
-
-
+      <div>
+        <Header/>
+      </div>
 
 
     )

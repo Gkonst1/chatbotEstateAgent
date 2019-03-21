@@ -2,7 +2,6 @@ import React from "react";
 import './home.css';
 import Welcome from './welcome';
 import Instructions from './instructions';
-import Test from './test';
 import {onRouteChange} from '../../App.js';
 
 class Home extends React.Component{
