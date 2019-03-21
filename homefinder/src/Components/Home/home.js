@@ -3,6 +3,7 @@ import './home.css';
 import Welcome from './welcome';
 import Instructions from './instructions';
 import Test from './test';
+import {onRouteChange} from '../../App.js';
 
 class Home extends React.Component{
   render(){
@@ -14,20 +15,10 @@ class Home extends React.Component{
           {/* <Test/> */}
           <Instructions/>
           <div className="buttons">
-            <h3 className="button landlord"><a>I'm Landlord</a></h3>
-            <h3 className="button tenant"><a>I'm Tenant</a></h3>
+            <h3 className="button landlord" onClick={onRouteChange(landlord)}>I'm Landlord</h3>
+            <h3 className="button tenant">I'm Tenant</h3>
           </div>
         </div>
-
-
-
-
-        {/*
-        <Instructions/>
-        <div className="buttonbox">
-          <Button1/>
-          <Button2/>
-        </div> */}
       </div>
     );
   }
