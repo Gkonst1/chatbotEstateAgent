@@ -1,13 +1,14 @@
 import React, { Component } from 'react';
 import './main.css';
-import Landlord from './Components/LandlordPage/landlord';
 import './Components/Home/home.css';
-import Welcome from './Components/Home/welcome';
-import Instructions from './Components/Home/instructions';
+import Home from './Components/Home/home';
+import Landlord from './Components/LandlordPage/landlord';
 import Tenant from './Components/TenantPage/tenant';
+import Results from './Components/LandlordPage/resultsPage/results';
+import { Switch, Route } from 'react-router-dom';
 
 const initialState={
-  route:'home'
+	
 }
 
 class App extends Component {
@@ -16,41 +17,17 @@ class App extends Component {
     this.state= initialState;
   }
 
-onRouteChange=(route)=>{
-  if (route ==='home'){
-    this.setState(initialState);
-  }else if (route==='landlord'){
-    this.setState({route:'landlord'});
-  }else if (route ==='tenant'){
-    this.setState({route:'tenant'})
-  }
-}
-
   render() {
     const {route} = this.state;
     return (
       <div>
-        {route ==='home'?
-          <div className="main">
-            <div className="content">
-              <Welcome/>
-              <Instructions/>
-              <div className="buttons">
-                <h3 className="button landlord" onClick={()=> this.onRouteChange('landlord')}>I'm Landlord</h3>
-                <h3 className="button tenant" onClick={()=>this.onRouteChange('tenant')}>I'm Tenant</h3>
-              </div>
-            </div>
-          </div>
-
-        :(this.state.route ==='landlord'?
-          <Landlord/>
-          :<h1>hi</h1>
-          )
-        }
-
+				<Switch>
+  				<Route exact path='/' component={Home}/>
+  				<Route path='/landlord' component={Landlord}/>
+  				<Route path='/tenant' component={Tenant}/>
+					<Route exact path='/results' component={Results}/>
+				</Switch>
       </div>
-      // <LandlordPage/>
-      // <Tenant/>
     );
   }
 }

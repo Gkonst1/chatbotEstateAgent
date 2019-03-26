@@ -1,0 +1,29 @@
+.results{
+	text-align: center;
+	font-size: 4rem;
+	margin-top: 2%;
+}
+.resultsContainer{
+	display: flex;
+	margin-top: 2%;
+}
+.filters{
+	margin-right: 30%;
+	margin-left: 10%;
+	display: flex;
+	flex-direction: column;
+}
+.priceFilter, .sizeFilter, .locationFilter{
+	text-align: center;
+	padding-top: 10px;
+	border: 3px solid black;
+	width: 150px;;
+	height: 40px;
+	border-radius: 15px;
+	margin: 10%;
+}
+.image{
+	width: 600px;
+	height: 400px;
+	float: right;
+}

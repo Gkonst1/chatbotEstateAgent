@@ -45,8 +45,10 @@
    -webkit-box-shadow: inset 0 0 10px rgba(0, 0, 0, 55%);
    box-shadow:         inset 0 0 10px rgba(0, 0, 0, 55%);
 }
-.landlord{
+.landlord, .tenant{
   background-color: #f16c51;
+	text-decoration: none;
+	color: white;
 }
 .tenant{
   background-color: #b950f0;
