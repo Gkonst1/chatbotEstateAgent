@@ -8,22 +8,43 @@
 	margin-top: 2%;
 }
 .filters{
-	margin-right: 30%;
+	margin-right: 20%;
 	margin-left: 10%;
 	display: flex;
 	flex-direction: column;
 }
 .priceFilter, .sizeFilter, .locationFilter{
+	font-weight: bolder;
+	font-family: Cursive;
 	text-align: center;
-	padding-top: 10px;
 	border: 3px solid black;
 	width: 150px;;
 	height: 40px;
 	border-radius: 15px;
-	margin: 10%;
+	margin: 0 10%;
+	justify-content: center;
+	outline: none;
+}
+.customSelect{
+	position: relative;
+	margin-top: 20%;
+}
+label{
+	font-weight: bolder;
+	margin: 0;
+	padding: 0;
+	font-size: 18px;
+	margin-left: 10%;
+}
+.properties{
+	overflow-y: scroll;
 }
 .image{
-	width: 600px;
-	height: 400px;
+	width: 750px;
+	height: 500px;
 	float: right;
+}
+figcaption{
+	font-size: 20px;
+	font-weight: bold;
 }

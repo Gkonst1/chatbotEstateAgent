@@ -4,6 +4,7 @@ import { withStyles } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
 import logo from '../icons and colors/appartments.svg';
+import { Link } from 'react-router-dom';
 import { unstable_useMediaQuery as useMediaQuery } from '@material-ui/core/useMediaQuery';
 
 const styles = theme => ({
@@ -18,6 +19,7 @@ const styles = theme => ({
     fontSize: '50px',
     color: 'white',
     textTransform: 'uppercase',
+    textDecoration: 'none',
   },
   smallLogo:{
     width: '4%',
@@ -34,7 +36,7 @@ function CenteredGrid(props) {
       <div className={classes.root}>
         <Grid container spacing={24}>
           <Grid item xs={12}>
-            <Paper className={classes.paper}><img className={classes.smallLogo} src={logo} alt="logo"/>Home Finder</Paper>
+            <Paper className={classes.paper}><Link to='/' className={classes.paper}><img className={classes.smallLogo} src={logo} alt="logo"/>Home Finder</Link></Paper>
           </Grid>
         </Grid>
       </div>
