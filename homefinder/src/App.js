@@ -8,7 +8,7 @@ import Results from './Components/LandlordPage/resultsPage/results';
 import { Switch, Route } from 'react-router-dom';
 
 const initialState={
-	
+
 }
 
 class App extends Component {
@@ -23,8 +23,8 @@ class App extends Component {
       <div>
 				<Switch>
   				<Route exact path='/' component={Home}/>
-  				<Route path='/landlord' component={Landlord}/>
-  				<Route path='/tenant' component={Tenant}/>
+  				<Route exact path='/landlord' component={Landlord}/>
+  				<Route exact path='/tenant' component={Tenant}/>
 					<Route exact path='/results' component={Results}/>
 				</Switch>
       </div>
