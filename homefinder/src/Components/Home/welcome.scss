@@ -2,7 +2,6 @@
   align-self: center;
   display: flex;
   flex-direction: row;
-  position: static;
   margin-top: 30%;
 }
 .logoImg{
@@ -18,4 +17,46 @@ h1{
 }
 h2{
   font-size: 4rem;
+}
+
+
+@media(max-width:1340px){
+  .welcome{
+    margin-top: 40%;
+  }
+  h1{
+    font-size: 7rem;
+  }
+  h2{
+    font-size:3rem;
+  }
+  .logoImg{
+    width: 8.5rem;
+    height: auto;
+
+  }
+  .head1{
+    line-height: 4rem;
+  }
+}
+
+@media (max-width:1102px){
+  h1{
+    font-size:5rem;
+  }
+}
+
+@media(max-width:576px){
+  .welcome{
+    top: 50%;
+    flex-direction: column;
+    text-align: center;
+    line-height: 1rem;
+  }
+  h1{
+    font-size: 4rem;
+  }
+  h2{
+    display: none;
+  }
 }
