@@ -1,5 +1,5 @@
 import React from 'react';
-import './welcome.css';
+import './welcome.scss';
 import logo from '../../icons and colors/appartments.svg';
 
 

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './main.css';
-import './Components/Home/home.css';
+import './Components/Home/home.scss';
 import Home from './Components/Home/home';
 import Landlord from './Components/LandlordPage/landlord';
 import Tenant from './Components/TenantPage/tenant';
