@@ -4,7 +4,7 @@ import './Components/Home/home.css';
 import Home from './Components/Home/home';
 import Landlord from './Components/LandlordPage/landlord';
 import Tenant from './Components/TenantPage/tenant';
-import Results from './Components/LandlordPage/resultsPage/results';
+import Results from './Components/TenantPage/resultsPage/results';
 import { Switch, Route } from 'react-router-dom';
 
 const initialState={
