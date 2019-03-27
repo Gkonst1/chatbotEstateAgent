@@ -1,0 +1,62 @@
+.welcome{
+  align-self: center;
+  display: flex;
+  flex-direction: row;
+  margin-top: 30%;
+}
+.logoImg{
+  width: 11rem;
+  height: auto;
+}
+.head1{
+  color:white;
+  line-height: 5rem;
+}
+h1{
+  font-size: 8rem;
+}
+h2{
+  font-size: 4rem;
+}
+
+
+@media(max-width:1340px){
+  .welcome{
+    margin-top: 40%;
+  }
+  h1{
+    font-size: 7rem;
+  }
+  h2{
+    font-size:3rem;
+  }
+  .logoImg{
+    width: 8.5rem;
+    height: auto;
+
+  }
+  .head1{
+    line-height: 4rem;
+  }
+}
+
+@media (max-width:1102px){
+  h1{
+    font-size:5rem;
+  }
+}
+
+@media(max-width:576px){
+  .welcome{
+    top: 50%;
+    flex-direction: column;
+    text-align: center;
+    line-height: 1rem;
+  }
+  h1{
+    font-size: 4rem;
+  }
+  h2{
+    display: none;
+  }
+}
