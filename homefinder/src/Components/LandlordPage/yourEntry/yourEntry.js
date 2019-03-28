@@ -1,0 +1,27 @@
+import React from "react";
+import './yourEntry.css';
+import Header from '../../header';
+import { Link } from 'react-router-dom';
+import img from '../../../icons and colors/homebg.jpg';
+
+
+class YourEntry extends React.Component{
+  render(){
+    return(
+      <div>
+        <Header/>
+        <div className="entry">
+          <h1 className="results">Your Entry</h1>
+          <div className="singleEntry">
+            <img src={img} className="image"></img>
+            <figcaption>Price:270€, Size:70cm2</figcaption>
+            <figcaption>Contact: 6948764634, For Rent</figcaption>
+          </div>
+        </div>
+      </div>
+    )
+  }
+}
+
+
+export default YourEntry;

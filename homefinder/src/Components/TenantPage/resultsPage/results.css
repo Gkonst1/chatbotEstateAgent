@@ -38,6 +38,7 @@ label{
 }
 .properties{
 	overflow-y: scroll;
+	height: 560px;
 }
 .image{
 	width: 750px;
@@ -47,4 +48,7 @@ label{
 figcaption{
 	font-size: 20px;
 	font-weight: bold;
+}
+.singleEntity{
+	margin-bottom: 10px;
 }

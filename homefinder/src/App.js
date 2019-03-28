@@ -5,6 +5,7 @@ import Home from './Components/Home/home';
 import Landlord from './Components/LandlordPage/landlord';
 import Tenant from './Components/TenantPage/tenant';
 import Results from './Components/TenantPage/resultsPage/results';
+import YourEntry from './Components/LandlordPage/yourEntry/yourEntry';
 import { Switch, Route } from 'react-router-dom';
 
 const initialState={
@@ -26,6 +27,7 @@ class App extends Component {
   				<Route exact path='/landlord' component={Landlord}/>
   				<Route exact path='/tenant' component={Tenant}/>
 					<Route exact path='/results' component={Results}/>
+          <Route exact path='/yourEntry' component={YourEntry}/>
 				</Switch>
       </div>
     );

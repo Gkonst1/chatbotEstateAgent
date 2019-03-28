@@ -2,7 +2,6 @@ import React from "react";
 import './results.css';
 import Header from '../../header'
 import img from '../../../icons and colors/homebg.jpg';
-import size from '../../../icons and colors/ruler.svg';
 
 
 class Results extends React.Component{
@@ -45,9 +44,16 @@ class Results extends React.Component{
             </div>
 					</div>
 					<div className="properties">
-						<img src={img} className="image"></img>
-            <figcaption>Price:270$, Size:70cm2</figcaption>
-            <figcaption>Contact: 6948764634, For Rent</figcaption>
+            <div className="singleEntity">
+  						<img src={img} className="image"></img>
+              <figcaption>Price:270€, Size:70cm2</figcaption>
+              <figcaption>Contact: 6948764634, For Rent</figcaption>
+            </div>
+            <div className="singleEntity">
+              <img src={img} className="image"></img>
+              <figcaption>Price:270€, Size:70cm2</figcaption>
+              <figcaption>Contact: 6948764634, For Rent</figcaption>
+            </div>
 					</div>
 				</div>
       </div>

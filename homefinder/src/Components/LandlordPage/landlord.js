@@ -54,7 +54,9 @@ class Landlord extends React.Component{
               <input type="file" name="img" accept="image/*"></input>
             </div>
           </div>
-
+          <div>
+            <Link to="/yourEntry"><h1>Sumbit</h1></Link>
+          </div>
         </div>
       </div>
 {/*
