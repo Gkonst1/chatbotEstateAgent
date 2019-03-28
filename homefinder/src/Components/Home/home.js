@@ -2,6 +2,7 @@ import React from "react";
 import './home.scss';
 import Welcome from './welcome';
 import Instructions from './instructions';
+import Chatbot from '../chatbot/chatbot';
 import { Link } from 'react-router-dom';
 
 class Home extends React.Component{
@@ -16,6 +17,7 @@ class Home extends React.Component{
             <Link to='/tenant' className="button tenant"><h3 className="tenant">I'm Tenant</h3></Link>
           </div>
         </div>
+        <Chatbot/>
       </div>
     );
   }
