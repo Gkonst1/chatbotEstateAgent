@@ -16,30 +16,30 @@ class Results extends React.Component{
               <label>Price</label>
   						<select className="priceFilter">
                 <option selected disabled>--Price--</option>
-  					    <option>0-100$</option>
-  					    <option>101-250$</option>
-  					    <option>251-450$</option>
-  					    <option>451$+</option>
+                <option value="0-100$">0-100$</option>
+                <option value="101-250$">101-250$</option>
+                <option value="251-450$">251-450$</option>
+                <option value="451$+">451$+</option>
     					</select>
             </div>
             <div className="customSelect">
               <label>Size(cm2)</label>
               <select className="sizeFilter">
                 <option selected disabled>--Size--</option>
-  					    <option>0-30cm2</option>
-  					    <option>31-70cm2</option>
-  					    <option>71-200cm2</option>
-  					    <option>201+cm2</option>
+                <option value="0-30cm2">0-30cm2</option>
+                <option value="31-70cm2">31-70cm2</option>
+                <option value="71-200cm2">71-200cm2</option>
+                <option value="201cm2+">201cm2+</option>
     					</select>
             </div>
-            <div className="customSelect">
+            <div className="customSelect" id="lastFilter">
               <label>Location</label>
               <select className="sizeFilter">
                 <option selected disabled>--Location--</option>
-  					    <option className="option">Kamara</option>
-  					    <option className="option">Faliro</option>
-  					    <option className="option">Neapoli</option>
-  					    <option className="option">Kalamaria</option>
+  					    <option className="option" value="Kamara">Kamara</option>
+  					    <option className="option" value="Faliro">Faliro</option>
+  					    <option className="option" value="Neapoli">Neapoli</option>
+  					    <option className="option" value="Kalamaria">Kalamaria</option>
     					</select>
             </div>
 					</div>
@@ -47,12 +47,12 @@ class Results extends React.Component{
             <div className="singleEntity">
   						<img src={img} className="image"></img>
               <figcaption>Price:270€, Size:70cm2</figcaption>
-              <figcaption>Contact: 6948764634, For Rent</figcaption>
+              <figcaption>Contact: 6965159638, For Rent</figcaption>
             </div>
             <div className="singleEntity">
               <img src={img} className="image"></img>
               <figcaption>Price:270€, Size:70cm2</figcaption>
-              <figcaption>Contact: 6948764634, For Rent</figcaption>
+              <figcaption>Contact: 6965159638, For Rent</figcaption>
             </div>
 					</div>
 				</div>

@@ -6,6 +6,7 @@
 .resultsContainer{
 	display: flex;
 	margin-top: 2%;
+	flex-wrap: wrap;
 }
 .filters{
 	margin-right: 20%;
@@ -24,6 +25,9 @@
 	margin: 0 10%;
 	justify-content: center;
 	outline: none;
+}
+#lastFilter{
+	margin-bottom: 15%;
 }
 .customSelect{
 	position: relative;

@@ -15,7 +15,7 @@ class YourEntry extends React.Component{
           <div className="singleEntry">
             <img src={img} className="image"></img>
             <figcaption>Price:270€, Size:70cm2</figcaption>
-            <figcaption>Contact: 6948764634, For Rent</figcaption>
+            <figcaption>Contact: 6965159638, For Rent</figcaption>
           </div>
         </div>
       </div>
