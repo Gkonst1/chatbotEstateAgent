@@ -6,56 +6,29 @@ import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 import TextField from '@material-ui/core/TextField';
-import PropTypes from 'prop-types';
-import classNames from 'classnames';
-import { withStyles } from '@material-ui/core/styles';
-import MenuItem from '@material-ui/core/MenuItem';
 
 
-// const styles=theme= {
-//   paper:{padding:20, margin:20, textAlign:'center'},
-//   text:{color:'#000', fontWeight:600},
-//   form:{textAlign:'center'},
-//   dense: {marginTop: 19},
-//   textField: {
-//     marginLeft: theme.spacing.unit,
-//     marginRight: theme.spacing.unit,
-//     width: 200,
-//   }
-// }
+const styles= {
+  paper:{padding:20, margin:20, textAlign:'center'},
+  text:{color:'#000', fontWeight:600},
+  label:{fontSize:15, marginBottom:0},
+  leftPanel:{ height:'100%'},
+  rightPanel:{backgroundColor:'yellow'}
+}
 
 
 
-const styles = theme => ({
-  container: {
-    display: 'flex',
-    flexWrap: 'wrap',
-  },
-  textField: {
-    marginLeft: theme.spacing.unit,
-    marginRight: theme.spacing.unit,
-    width: 200,
-  },
-  dense: {
-    marginTop: 19,
-  },
-  menu: {
-    width: 200,
-  }
-});
 
 
 
 class Tenant extends React.Component{
   render(){
-    const { classes } = this.props;
-
+   
     return(<Fragment>
       <Header/>
-        <Grid container spacing={24}>
-
+        <Grid container spacing={48}>
         {/* Title */}
-          <Grid item xs={12} justify='center' alignItems="center">
+          <Grid item xs={12}>
             <Paper style={styles.paper} elevation={0} >
             <Typography variant="display3" style={styles.text}>
                 Submit Your Property
@@ -65,32 +38,45 @@ class Tenant extends React.Component{
 
           {/* Left Panel */}
 
-        <Grid item xs={6} style={styles.form}>
-
-               
-        <form style={styles.form}>
-          <TextField
-          id="standard-bare"
-          label="Property"
-          style={{ padding: 20}}
-          className={(styles.dense, styles.textField)}
-          margin="dense"
-          // Inputprops is for the textfield place itself
-          InputProps={{
-            style:{fontSize:'8rem'}
-          }}  
-        />
+        <Grid item xs={12} sm={12} md={6} lg={6}  className="leftPanel" style={styles.leftPanel}>
+       
+        <form style ={styles.form} justify='center' alignItems="center">
+        
+              <h3 style={styles.label}>Price</h3>
+              <TextField
+                id="outlined-bare"
+                className={styles.form}
+                variant="outlined"
+                margin="normal"
+                InputProps	={{style: {fontSize:20 , fontWeight:600}}}
+              />
 
 
-          </form>
-          
+              <h3 style={styles.label}>Size</h3>
+              <TextField
+                id="outlined-bare"
+                className={styles.form}
+                variant="outlined"
+                margin="normal"
+                InputProps	={{style: {fontSize:20 , fontWeight:600}}}
+              />
+
+              <h3 style={styles.label}>Location</h3>
+              <TextField
+                id="outlined-bare"
+                className={styles.form}
+                variant="outlined"
+                margin="normal"
+                InputProps	={{style: {fontSize:20 , fontWeight:600}}}
+              />    
+        </form>
         </Grid>
 
 
            {/* Right Panel */}
 
-        <Grid item xs={6}>
-        
+        <Grid item xs={6} style={styles.rightPanel} justify="flex-end">
+            <Typography></Typography>
         </Grid>
 
         </Grid> 
@@ -98,7 +84,12 @@ class Tenant extends React.Component{
     </Fragment>
     
     )
+    
   }
+  
 }
 
-export default Tenant;
+
+
+
+export default Tenant ;
