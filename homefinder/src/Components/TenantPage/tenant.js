@@ -7,7 +7,14 @@ import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
-
+import Input from '@material-ui/core/Input';
+import OutlinedInput from '@material-ui/core/OutlinedInput';
+import FilledInput from '@material-ui/core/FilledInput';
+import InputLabel from '@material-ui/core/InputLabel';
+import FormHelperText from '@material-ui/core/FormHelperText';
+import FormControl from '@material-ui/core/FormControl';
+import Select from '@material-ui/core/Select';
+import NativeSelect from '@material-ui/core/NativeSelect';
 
 
 const styles= {
@@ -40,14 +47,30 @@ class Tenant extends React.Component{
         <form style ={styles.form} justify='center' alignItems="center">
         
               <h3 className="label">Price</h3>
-              <TextField
-                id="outlined-bare"
-                style={styles.text}
-                className='textfield'
-                variant="outlined"
-                margin="normal"
-                InputProps	={{style: {fontSize:20 , fontWeight:600}}}
-              />
+              <FormControl variant="outlined">
+                  <InputLabel
+                    ref={ref => {
+                      this.InputLabelRef = ref;
+                    }}
+                    htmlFor="outlined-age-native-simple"
+                  >
+                    Age
+                    </InputLabel>
+                    <Select
+                      native
+                      input={
+                        <OutlinedInput
+                          name="age"
+                          id="outlined-age-native-simple"
+                        />
+                      }
+                    >
+                      <option value="" />
+                      <option value={10}>Ten</option>
+                      <option value={20}>Twenty</option>
+                      <option value={30}>Thirty</option>
+                    </Select>
+                   </FormControl>
 
 
               <h3 className="label">Size</h3>
