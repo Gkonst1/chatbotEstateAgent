@@ -18,11 +18,6 @@ const styles= {
   rightPanel:{padding:29},
 }
 
-
-
-
-
-
 class Tenant extends React.Component{
   render(){
     
