@@ -23,11 +23,11 @@ const styles= {
   rightIcon:{marginleft:30},
   leftPanel:{ height:'100%' },
   rightPanel:{padding:29},
+
 }
 
 class Tenant extends React.Component{
   render(){
-    
     return(<Fragment>
       <Header/>
         <Grid container spacing={48}>
@@ -43,55 +43,85 @@ class Tenant extends React.Component{
           {/* Left Panel */}
 
         <Grid item xs={12} sm={12} md={6} lg={6}  className="leftPanel" style={styles.leftPanel}>
-       
+
         <form style ={styles.form} justify='center' alignItems="center">
-        
-              <h3 className="label">Price</h3>
-              <FormControl variant="outlined">
-                  <InputLabel
-                    ref={ref => {
-                      this.InputLabelRef = ref;
-                    }}
-                    htmlFor="outlined-age-native-simple"
-                  >
-                    Age
-                    </InputLabel>
-                    <Select
-                      native
-                      input={
-                        <OutlinedInput
-                          name="age"
-                          id="outlined-age-native-simple"
-                        />
-                      }
-                    >
-                      <option value="" />
-                      <option value={10}>Ten</option>
-                      <option value={20}>Twenty</option>
-                      <option value={30}>Thirty</option>
-                    </Select>
-                   </FormControl>
+
+              <h3 className="label">Price (€)</h3>
+                  <FormControl variant="outlined">
+                      <InputLabel
+
+                        htmlFor="outlined-age-native-simple"
+                      >
+
+                        </InputLabel>
+                        <Select
+                          native
+                          input={
+                            <OutlinedInput
+
+                            />
+                          }
+                        >
+                          <option value="" />
+                          <option className="option" value={0-100} style={{fontSize:20, color:'black', fontWeight:'bold', textAlign:'ce' }}>0-100</option>
+                          <option className="option" value={100-250} style={{fontSize:20, color:'black', fontWeight:'bold', textAlign:'center' }}>100-250</option>
+                          <option className="option" value={251-450} style={{fontSize:20, color:'black', fontWeight:'bold', textAlign:'center' }}>251-450  </option>
+                          <option className="option" value={451} style={{fontSize:20, color:'black', fontWeight:'bold', textAlign:'center' }}>451+  </option>
+                        </Select>
+                       </FormControl>
 
 
-              <h3 className="label">Size</h3>
-              <TextField
-                id="outlined-bare"
-                className='textfield'
-                style={styles.text}
-                variant="outlined"
-                margin="normal"
-                InputProps	={{style: {fontSize:20 , fontWeight:600}}}
-              />
+                       <h3 className="label">Size (m2)</h3>
+                           <FormControl variant="outlined">
+                               <InputLabel
 
-              <h3 className="label">Location</h3>
-              <TextField
-                id="outlined-bare"
-                className='textfield'
-                style={styles.text}
-                variant="outlined"
-                margin="normal"
-                InputProps	={{style: {fontSize:20 , fontWeight:600}}}
-              />    
+                                 htmlFor="outlined-age-native-simple"
+                               >
+
+                                 </InputLabel>
+                                 <Select
+                                   native
+                                   input={
+                                     <OutlinedInput
+
+                                     />
+                                   }
+                                 >
+                                   <option value="" />
+                                   <option className="option" value={0-100} style={{fontSize:20, color:'black', fontWeight:'bold', textAlign:'ce' }}>0-30</option>
+                                   <option className="option" value={100-250} style={{fontSize:20, color:'black', fontWeight:'bold', textAlign:'center' }}>31 - 70  </option>
+                                   <option className="option" value={251-450} style={{fontSize:20, color:'black', fontWeight:'bold', textAlign:'center' }}>71 -200   </option>
+                                   <option className="option" value={451} style={{fontSize:20, color:'black', fontWeight:'bold', textAlign:'center' }}>200+  </option>
+                                 </Select>
+                                </FormControl>
+
+
+
+
+
+                                <h3 className="label">Locations</h3>
+                                    <FormControl variant="outlined">
+                                        <InputLabel
+
+                                          htmlFor="outlined-age-native-simple"
+                                        >
+
+                                          </InputLabel>
+                                          <Select
+                                            native
+                                            input={
+                                              <OutlinedInput
+
+                                              />
+                                            }
+                                          >
+                                            <option value="" />
+                                            <option className="option" value={0-100} style={{fontSize:20, color:'black', fontWeight:'bold', textAlign:'ce' }}>Kamara</option>
+                                            <option className="option" value={100-250} style={{fontSize:20, color:'black', fontWeight:'bold', textAlign:'center' }}>Neapoli</option>
+                                            <option className="option" value={251-450} style={{fontSize:20, color:'black', fontWeight:'bold', textAlign:'center' }}>Faliro</option>
+                                            <option className="option" value={451} style={{fontSize:20, color:'black', fontWeight:'bold', textAlign:'center' }}>Kalamaria</option>
+                                          </Select>
+                                         </FormControl>
         </form>
         </Grid>
 
@@ -100,7 +130,7 @@ class Tenant extends React.Component{
           <div className="buttons-box">
                 <Grid item lg={3}>
                   <Button variant="contained" className="single-button" elevation='0' size="large"  style={
-                    {width:'80%', 
+                    {width:'80%',
                     fontSize:19,
                     fontWeight:'bold',
                     color:'#fff',
@@ -111,7 +141,7 @@ class Tenant extends React.Component{
                 </Grid>
                 <Grid item lg={3}>
                 <Button variant="contained" className="single-button" elevation='0' size="large"  style={
-                    {width:'80%', 
+                    {width:'80%',
                     fontSize:19,
                     fontWeight:'700',
                     color:'#fff',
@@ -122,10 +152,10 @@ class Tenant extends React.Component{
                 </Grid>
           </div>
           <Fragment>
-                
+
           <Grid item xs={12} className="submit-box" style={{textAlign:'center'}}>
                <Link to='/results'><Button variant="contained" className="single-button" elevation='0' size="large"  style={
-                    {width:'50%', 
+                    {width:'50%',
                     fontSize:19,
                     marginTop:150,
                     fontWeight:'700',
@@ -134,18 +164,18 @@ class Tenant extends React.Component{
                      }}>
                    SEARCH
                   </Button>
-                  </Link> 
+                  </Link>
                 </Grid>
 
           </Fragment>
         </Grid>
         </Grid>{/* Grid Container Closing */}
     </Fragment>
-    
+
     )
-    
+
   }
-  
+
 }
 
 
