@@ -2,7 +2,7 @@ import React from "react";
 import './results.css';
 import Header from '../../header'
 import img from '../../../icons and colors/homebg.jpg';
-import houses from './houses.js';
+import houses from '../../houses.js';
 
 class Results extends React.Component{
   constructor(){
