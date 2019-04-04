@@ -1,4 +1,4 @@
-import React, {Fragment} from "react";
+ import React, {Fragment} from "react";
 import Header from '../header';
 import './tenant.scss';
 import { Link } from 'react-router-dom';
