@@ -1,9 +1,7 @@
 import React, {Fragment} from "react";
 import './results.css';
 import img from '../../../icons and colors/homebg.jpg';
-<<<<<<< HEAD
 import houses from '../../houses.js';
-=======
 import { Link } from 'react-router-dom';
 import houses from './houses.js';
 import Header from '../../header'
@@ -25,7 +23,6 @@ const styles= {
   rightPanel:{padding:29},
 
 }
->>>>>>> 391109964707a20e024636138167d2531cd83604
 
 
 
