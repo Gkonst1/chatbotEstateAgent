@@ -2,9 +2,13 @@ import React from "react";
 import './results.css';
 import Header from '../../header'
 import img from '../../../icons and colors/homebg.jpg';
-
+import houses from './houses.js';
 
 class Results extends React.Component{
+  constructor(){
+    super()
+  }
+
   render(){
     return (
       <div>
@@ -14,7 +18,7 @@ class Results extends React.Component{
 					<div className="filters">
             <div className="customSelect" >
               <label>Price</label>
-  						<select className="priceFilter">
+  						<select className="priceFilter" ref="price">
                 <option selected disabled>--Price--</option>
                 <option value="0-100$">0-100$</option>
                 <option value="101-250$">101-250$</option>
@@ -22,14 +26,14 @@ class Results extends React.Component{
                 <option value="451$+">451$+</option>
     					</select>
             </div>
-            <div className="customSelect">
-              <label>Size(cm2)</label>
+            <div className="customSelect" id="content">
+              <label>Size(m2)</label>
               <select className="sizeFilter">
                 <option selected disabled>--Size--</option>
-                <option value="0-30cm2">0-30cm2</option>
-                <option value="31-70cm2">31-70cm2</option>
-                <option value="71-200cm2">71-200cm2</option>
-                <option value="201cm2+">201cm2+</option>
+                <option value="0-30cm2">0-30m2</option>
+                <option value="31-70cm2">31-80m2</option>
+                <option value="71-200cm2">81-200m2</option>
+                <option value="201cm2+">201m2+</option>
     					</select>
             </div>
             <div className="customSelect" id="lastFilter">
@@ -46,7 +50,7 @@ class Results extends React.Component{
 					<div className="properties">
             <div className="singleEntity">
   						<img src={img} className="image"></img>
-              <figcaption>Price:270€, Size:70cm2</figcaption>
+              <figcaption>Price:{houses[1].price}, Size:{houses[1].size} </figcaption>
               <figcaption>Contact: 6965159638, For Rent</figcaption>
             </div>
             <div className="singleEntity">

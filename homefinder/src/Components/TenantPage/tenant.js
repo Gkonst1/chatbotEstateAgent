@@ -23,13 +23,13 @@ class Tenant extends React.Component{
                 </select>
               </div>
               <div className="customSelectSearch">
-                <label>Size(cm2)</label>
+                <label>Size(m2)</label>
                 <select className="singleFilterSearch">
                   <option selected disabled>--Size--</option>
-                  <option value="0-30cm2">0-30cm2</option>
-                  <option value="31-70cm2">31-70cm2</option>
-                  <option value="71-200cm2">71-200cm2</option>
-                  <option value="201cm2+">201cm2+</option>
+                  <option value="0-30cm2">0-30m2</option>
+                  <option value="31-70cm2">31-70m2</option>
+                  <option value="71-200cm2">71-200m2</option>
+                  <option value="201cm2+">201m2+</option>
                 </select>
               </div>
               <div className="customSelectSearch">

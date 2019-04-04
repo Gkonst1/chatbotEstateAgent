@@ -18,7 +18,7 @@ class Landlord extends React.Component{
               </div>
 
               <div className="form__filter-single">
-              <label className="filter-label">Size (cm2)</label>
+              <label className="filter-label">Size (m2)</label>
               <input className="form__filter-input"></input>
               </div>
 
