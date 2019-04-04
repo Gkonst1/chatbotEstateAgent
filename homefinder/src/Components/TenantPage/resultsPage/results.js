@@ -55,7 +55,7 @@ class Results extends React.Component{
             </div>
             <div className="singleEntity">
               <img src={img} className="image"></img>
-              <figcaption>Price:270€, Size:70cm2</figcaption>
+              <figcaption>Price:{houses[2].price}, Size:{houses[2].size}</figcaption>
               <figcaption>Contact: 6965159638, For Rent</figcaption>
             </div>
 					</div>

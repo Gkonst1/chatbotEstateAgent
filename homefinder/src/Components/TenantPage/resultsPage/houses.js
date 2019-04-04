@@ -2,7 +2,9 @@ const houses = [
   {
     id: 1,
     price: '100$',
-    size: '200m2'
+    size: '200m2',
+    img: 'https://images.unsplash.com/photo-1495433324511-bf8e92934d90?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1500&q=80',
+    location: 'Kamara'
   },
   {
     id: 2,
