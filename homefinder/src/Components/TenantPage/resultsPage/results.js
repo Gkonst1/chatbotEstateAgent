@@ -3,7 +3,6 @@ import './results.css';
 import img from '../../../icons and colors/homebg.jpg';
 import houses from '../../houses.js';
 import { Link } from 'react-router-dom';
-import houses from './houses.js';
 import Header from '../../header'
 import SearchForm from '../SearchForm';
 import Paper from '@material-ui/core/Paper';
@@ -13,17 +12,13 @@ import Button from '@material-ui/core/Button';
 
 
 
-
-
 const styles= {
   paper:{padding:20, margin:20, textAlign:'center'},
   text:{color:'#000', fontWeight:600},
   rightIcon:{marginleft:30},
   leftPanel:{ height:'100%' },
   rightPanel:{padding:29},
-
 }
-
 
 
 class Results extends React.Component{
