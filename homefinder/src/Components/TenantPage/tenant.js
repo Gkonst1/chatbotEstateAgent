@@ -7,6 +7,7 @@ import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
 import SearchForm from './SearchForm';
+import SearchTypeButtons from './SearchTypeButtons';
 
 const styles= {
   paper:{padding:20, margin:20, textAlign:'center'},
@@ -44,7 +45,9 @@ class Tenant extends React.Component{
 
         {/* Right Panel */}
         <Grid item xs={12} sm={12} md={6} lg={6} style={styles.rightPanel} >
-          <div className="buttons-box">
+            <SearchTypeButtons/>
+
+          {/* <div className="buttons-box">
                 <Grid item lg={3}>
                   <Button variant="contained" className="single-button" elevation='0' size="large"  style={
                     {width:'80%',
@@ -67,7 +70,7 @@ class Tenant extends React.Component{
                    SELL
                   </Button>
                 </Grid>
-          </div>
+          </div> */}
           <Fragment>
 
           <Grid item xs={12} className="submit-box" style={{textAlign:'center'}}>
