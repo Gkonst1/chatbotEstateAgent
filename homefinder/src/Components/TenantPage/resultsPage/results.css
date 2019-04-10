@@ -59,3 +59,7 @@ figcaption{
 .leftPanel{
 	position: sticky!important;
 }
+.rightPanel{
+	overflow-y: scroll;
+	height: 100vh;;
+}

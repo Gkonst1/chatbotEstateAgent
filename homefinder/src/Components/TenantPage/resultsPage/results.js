@@ -5,7 +5,6 @@ import SearchForm from '../SearchForm';
 import Grid from '@material-ui/core/Grid';
 import SingleEntity from './SingleEntity';
 
-
 const styles= {
   paper:{padding:20, margin:20, textAlign:'center'},
   text:{color:'#000', fontWeight:600},
