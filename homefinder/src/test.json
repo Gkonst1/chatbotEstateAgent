@@ -3,7 +3,8 @@
 		"price":"100",
 		"size":"200",
 		"location":"Kamara",
-		"status":"buy"
+		"status":"buy",
+		"image":"https://images.unsplash.com/photo-1493246318656-5bfd4cfb29b8?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80"
 		
 
 	},
@@ -12,61 +13,79 @@
 		"price":"150",
 		"size":"100",
 		"location":"Mpotsari",
-		"status":"buy"
+		"status":"buy",
+		"image":"https://images.unsplash.com/photo-1493246318656-5bfd4cfb29b8?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80"
+
 	},
 	{
 		"id":3,
 		"price":"500",
 		"size":"300",
 		"location":"Toumpa",
-		"status":"buy"
+		"status":"buy",
+		"image":"https://images.unsplash.com/photo-1493246318656-5bfd4cfb29b8?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80"
+
 	},
 	{
 		"id":4,
 		"price":"230",
 		"size":"70",
 		"location":"Kamara",
-		"status":"buy"
+		"status":"buy",
+		"image":"https://images.unsplash.com/photo-1527772482340-7895c3f2b3f7?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1420&q=80"
+
 	},
 	{
 		"id":5,
 		"price":"80",
 		"size":"25",
 		"location":"Ippolratous",
-		"status":"rent"
+		"status":"rent",
+		"image":"https://images.unsplash.com/photo-1493246318656-5bfd4cfb29b8?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80"
+
 	},
 	{
 		"id":6,
 		"price":"400",
 		"size":"120",
 		"location":"Ladadika",
-		"status":"rent"
+		"status":"rent",
+		"image":"https://images.unsplash.com/photo-1493246318656-5bfd4cfb29b8?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80"
+
 	},
 	{
 		"id":7,
 		"price":"140",
 		"size":"30",
 		"location":"Eyosmos",
-		"status":"rent"
+		"status":"rent",
+		"image":"https://images.unsplash.com/photo-1466098672325-c9ddda4b7975?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80"
+
 	},
 	{
 		"id":8,
 		"price":"500",
 		"size":"100",
 		"location":"Kentro",
-		"status":"rent"
+		"status":"rent",
+		"image":"https://images.unsplash.com/photo-1493246318656-5bfd4cfb29b8?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80"
+
 	},
 	{
 		"id":9,
 		"price":"320",
 		"size":"10",
 		"location":"Xarilaou",
-		"status":"rent"
+		"status":"rent",
+		"image":"https://images.unsplash.com/photo-1494161402158-1b81a9a904bb?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1351&q=80"
+
 	},
 	{
 		"id":10,
 		"price":"130",
 		"size":"300",
 		"location":"Aristotelous",
-		"status":"rent"
+		"status":"rent",
+		"image":"https://images.unsplash.com/photo-1493246318656-5bfd4cfb29b8?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80"
+
 	}]

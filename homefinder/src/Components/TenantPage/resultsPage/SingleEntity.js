@@ -1,6 +1,5 @@
 import React, {Fragment} from 'react';
 import Grid from '@material-ui/core/Grid'
-import Image from '../../../icons and colors/image.jpg'
 import './singleentity.scss';
 import Pin from '../../../icons and colors/maps-and-flags.svg'
 import Size from '../../../icons and colors/width.svg'
@@ -12,7 +11,7 @@ const SingleEntity = (props) =>(
  <Fragment >
         <Grid container className="singleEntity" xs={12} >
             <Grid item xs={12} className="image" 
-            style={{  backgroundImage: "url(" + "https://images.pexels.com/photos/1027512/pexels-photo-1027512.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" + ")",
+            style={{  backgroundImage: `{props.image}`,
             backgroundPosition: 'center',
             backgroundSize: 'cover',
             backgroundRepeat: 'no-repeat',}}>
