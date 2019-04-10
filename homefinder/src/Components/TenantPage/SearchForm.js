@@ -1,4 +1,4 @@
-import React, {Fragment} from 'react';
+import React from 'react';
 import './SearchForm.scss';
 import './tenant.scss';
 import OutlinedInput from '@material-ui/core/OutlinedInput';

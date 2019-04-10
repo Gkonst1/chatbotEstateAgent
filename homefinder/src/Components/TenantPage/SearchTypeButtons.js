@@ -10,8 +10,7 @@ import './SearchTypeButtons.scss';
 
 const styles = theme => ({
   root: {
-    display: 'flex',
-    flexDirection:'row'
+  
   },
   formControl: {
     margin: theme.spacing.unit * 3,
@@ -19,10 +18,10 @@ const styles = theme => ({
   },
   group: {
     display:'flex',
-    flexDirection:'row',
-    justify:'space-around'
+    flexDirection:'row'
   },
   single:{
+      justify:'space-around',
       backgroundColor:'red'
   }
 });
@@ -40,16 +39,15 @@ class RadioButtonsGroup extends React.Component {
     const { classes } = this.props;
 
     return (
-      <div className={classes.root}>
+      <div className="buttonsGroup">
         <FormControl component="fieldset" className={classes.formControl}>
           <RadioGroup
             className={classes.group}
             value={this.state.value}
             onChange={this.handleChange}
           >
-
-            <FormControlLabel value="Rent" control={<Radio />} label={<Typography variant="display1">Rent</Typography>} />
-            <FormControlLabel classes={classes.single} value="Buy" control={<Radio />} label={<Typography variant="display1">Buy</Typography>} />
+            <FormControlLabel className="SingleBtn mr-util" value="Rent" control={<Radio />} label={<Typography style={{color:'white'}} variant="display1">Rent</Typography>} />
+            <FormControlLabel className="SingleBtn" value="Buy" control={<Radio />} label={<Typography style={{color:'white'}} variant="display1">Buy</Typography>} />
           </RadioGroup>
         </FormControl>
         

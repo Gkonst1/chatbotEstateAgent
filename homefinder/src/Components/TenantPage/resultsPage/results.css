@@ -56,3 +56,6 @@ figcaption{
 .singleEntity{
 	margin-bottom: 10px;
 }
+.leftPanel{
+	position: sticky!important;
+}

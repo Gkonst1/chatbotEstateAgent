@@ -8,7 +8,7 @@ render(){
     return( <Fragment>
         <Grid container >
             <Grid item xs={12}>
-               <img src={Image}></img> 
+               <img src={Image} alt="housePhoto"></img> 
             </Grid>
 
             <Grid item xs={12} className="entityDescription">
