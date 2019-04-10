@@ -1,50 +1,61 @@
 [{
-	"id":1,
-	"price":"100$",
-	"size":"200m2"
+		"id":1,
+		"price":"100",
+		"size":"200",
+		"location":"Kamara"
+
 	},
 	{
 		"id":2,
-		"price":"150$",
-		"size":"100m2"
+		"price":"150",
+		"size":"100",
+		"location":"Mpotsari"
 	},
 	{
 		"id":3,
-		"price":"500$",
-		"size":"300m2"
+		"price":"500",
+		"size":"300",
+		"location":"Toumpa"
 	},
 	{
 		"id":4,
-		"price":"230$",
-		"size":"70m2"
+		"price":"230",
+		"size":"70",
+		"location":"Kamara"
 	},
 	{
 		"id":5,
-		"price":"80$",
-		"size":"25m2"
+		"price":"80",
+		"size":"25",
+		"location":"Ippolratous"
 	},
 	{
 		"id":6,
-		"price":"400$",
-		"size":"120m2"
+		"price":"400",
+		"size":"120",
+		"location":"Ladadika"
 	},
 	{
 		"id":7,
-		"price":"140$",
-		"size":"30m2"
+		"price":"140",
+		"size":"30",
+		"location":"Eyosmos"
 	},
 	{
 		"id":8,
-		"price":"500$",
-		"size":"100m2"
+		"price":"500",
+		"size":"100",
+		"location":"Kentro"
 	},
 	{
 		"id":9,
-		"price":"320$",
-		"size":"10m2"
+		"price":"320",
+		"size":"10",
+		"location":"Xarilaou"
 	},
 	{
 		"id":10,
-		"price":"130$",
-		"size":"300m2"
+		"price":"130",
+		"size":"300",
+		"location":"Aristotelous"
 	}]

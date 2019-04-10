@@ -21,11 +21,11 @@ const SingleEntity = (props) =>(
             <Grid item xs={12} className="entityDescription" >
             
                 <Grid item xs={7} justify="center" className="entityDescription_singleItem">
-                  <img src={Pin} alt="location:" className="icon"></img>  Saint Martins Platz
+                  <img src={Pin} alt="location:" className="icon"></img>{props.location}
                 </Grid>
                 
                 <Grid item xs={5} className="entityDescription_singleItem">
-                    <img src={Size} alt='Size:' className='icon'></img> 205m2
+                    <img src={Size} alt='Size:' className='icon'></img> {props.size}
                 </Grid>
                 <Grid item xs={2} className="entityDescription_singleItem">
                     <img src={Euro} alt='price: ' className='icon'></img>{props.price}

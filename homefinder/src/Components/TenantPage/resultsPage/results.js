@@ -31,7 +31,7 @@ componentDidMount(){
 
   render(){
     const houses = this.state.houses.map(house =>{
-      return <SingleEntity price={house.price}/>
+      return <SingleEntity key={house.id} price={house.price} location={house.location} size={props.size}/>
     }
     );
     return (<Fragment>
@@ -41,18 +41,12 @@ componentDidMount(){
 
       <Grid container spacing={48}>
 
-      <Grid item xs={12} sm={12} md={6} lg={6}  className="leftPanel" style={styles.leftPanel}>
-        <SearchForm/>
-      </Grid>
-
-
-      <Grid item xs={12} sm={12} md={6} lg={6}  className="rightPanel" style={styles.rightPanel}>
-         {houses}
-          
-      </Grid>
-
-
-
+          <Grid item xs={12} sm={12} md={6} lg={6}  className="leftPanel" style={styles.leftPanel}>
+            <SearchForm/>
+          </Grid>
+          <Grid item xs={12} sm={12} md={6} lg={6}  className="rightPanel" style={styles.rightPanel}>
+            {houses} 
+          </Grid>
       </Grid>
 
       </Fragment>
