@@ -11,7 +11,7 @@ const SingleEntity = (props) =>(
  <Fragment >
         <Grid container className="singleEntity" xs={12} >
             <Grid item xs={12} className="image" 
-            style={{  backgroundImage: `{props.image}`,
+            style={{  backgroundImage:`url(${props.image})` ,
             backgroundPosition: 'center',
             backgroundSize: 'cover',
             backgroundRepeat: 'no-repeat',}}>
