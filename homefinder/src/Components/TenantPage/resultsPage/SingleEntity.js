@@ -5,9 +5,11 @@ import './singleentity.scss';
 import Pin from '../../../icons and colors/maps-and-flags.svg'
 import Size from '../../../icons and colors/width.svg'
 import Euro from '../../../icons and colors/euro.svg'
-class SingleEntity extends React.Component{
-render(){
-    return( <Fragment >
+
+
+
+const SingleEntity = (props) =>(
+ <Fragment >
         <Grid container className="singleEntity" xs={12} >
             <Grid item xs={12} className="image" 
             style={{  backgroundImage: "url(" + "https://images.pexels.com/photos/1027512/pexels-photo-1027512.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" + ")",
@@ -26,7 +28,7 @@ render(){
                     <img src={Size} alt='Size:' className='icon'></img> 205m2
                 </Grid>
                 <Grid item xs={2} className="entityDescription_singleItem">
-                    <img src={Euro} alt='price: ' className='icon'></img>350
+                    <img src={Euro} alt='price: ' className='icon'></img>{props.price}
                 </Grid>
                 
             </Grid>
@@ -35,10 +37,7 @@ render(){
 
     </Fragment>
 
-    )
+)
 
-}
-
-}
 
 export default SingleEntity;
