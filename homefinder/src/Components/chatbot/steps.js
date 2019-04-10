@@ -1,68 +1,11 @@
-import React, {Fragment, Component} from "react";
-import PropTypes from 'prop-types';
-import './chatbot.css';
-import bot from '../../icons and colors/chatbot.png';
-import ChatBot from 'react-simple-chatbot';
-import houses from '../houses.js';
-import Results from '../TenantPage/resultsPage/results';
-import { Link } from 'react-router-dom';
-import Chatboticon from './chatboticon';
-
-class Review extends Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      action: '',
-      price: '',
-      size: '',
-    };
-  }
-
-  componentWillMount() {
-    const { steps } = this.props;
-    const { action, price, size } = steps;
-
-    this.setState({ action, price, size });
-  }
-
-  render() {
-    const { action, price, size } = this.state;
-    return (
-      <div style={{ width: '100%' }}>
-        <h3>Summary</h3>
-        <table>
-          <tbody>
-            <tr>
-              <td>Action</td>
-              <td>{action.value}</td>
-            </tr>
-            <tr>
-              <td>Price</td>
-              <td>{price.value}</td>
-            </tr>
-            <tr>
-              <td>Size</td>
-              <td>{size.value}</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-    );
-  }
-}
-
-Review.propTypes = {
-  steps: PropTypes.object,
-};
-
-Review.defaultProps = {
-  steps: undefined,
-};
-
 const string_to_array = function (str) {
   return str.trim().split(" ");
   };
+
+const style={
+  marginRight: '3%',
+  marginBottom: '1%'
+}
 
 const steps = [
   {
@@ -242,27 +185,4 @@ const steps = [
   },
 ];
 
-class Chatbot extends React.Component{
-  render(){
-    const style={
-      marginRight: '3%',
-      marginBottom: '1%'
-    }
-    return (
-      <div className="parent">
-        <ChatBot
-          botAvatar={bot}
-          className="chat"
-          steps={steps}
-          cache="true"
-          floating="true"
-          floatingIcon={<Chatboticon/>}
-          floatingStyle={style}
-        />
-      </div>
-
-    )
-  }
-}
-
-export default Chatbot;
+export default {steps,string_to_array};
