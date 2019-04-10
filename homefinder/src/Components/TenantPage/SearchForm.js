@@ -1,111 +1,139 @@
-import React, {Fragment} from 'react';
-
+import React from 'react';
+import './SearchForm.scss';
 import './tenant.scss';
-import { Link } from 'react-router-dom';
-import Paper from '@material-ui/core/Paper';
-import Grid from '@material-ui/core/Grid';
-import Typography from '@material-ui/core/Typography';
-import TextField from '@material-ui/core/TextField';
-import Button from '@material-ui/core/Button';
-import Input from '@material-ui/core/Input';
 import OutlinedInput from '@material-ui/core/OutlinedInput';
-import FilledInput from '@material-ui/core/FilledInput';
-import InputLabel from '@material-ui/core/InputLabel';
-import FormHelperText from '@material-ui/core/FormHelperText';
 import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
-import NativeSelect from '@material-ui/core/NativeSelect';
+import Typography from '@material-ui/core/Typography';
+import PropTypes from 'prop-types';
+import { withStyles } from '@material-ui/core/styles';
+import MenuItem from '@material-ui/core/MenuItem';
 
+const styles = theme => ({
+  root: {
+    display: 'flex',
+    flexDirection :'column',
+    flexWrap: 'wrap',
+  },
+  formControl: {
+    margin: theme.spacing.unit,
+    minWidth: 300,
+    color:'primary'
+  },
+  selectEmpty: {
+    marginTop: theme.spacing.unit * 4,
+  }
+});
 
-class SearchForm extends React.Component{
-  render() {
-    return(<Fragment>
+class SimpleSelect extends React.Component {
+  state = {
+    labelWidth: 0,
+  };
 
-      <form justify='center' alignItems="center">
-
-            <h3 className="label">Price (€)</h3>
-                <FormControl variant="outlined">
-                    <InputLabel
-
-                      htmlFor="outlined-age-native-simple"
-                    >
-
-                      </InputLabel>
-                      <Select
-                        native
-                        input={
-                          <OutlinedInput
-
-                          />
-                        }
-                      >
-                        <option value="" />
-                        <option className="option" value={0-100} style={{fontSize:20, color:'black', fontWeight:'bold', textAlign:'ce' }}>0-100</option>
-                        <option className="option" value={100-250} style={{fontSize:20, color:'black', fontWeight:'bold', textAlign:'center' }}>100-250</option>
-                        <option className="option" value={251-450} style={{fontSize:20, color:'black', fontWeight:'bold', textAlign:'center' }}>251-450  </option>
-                        <option className="option" value={451} style={{fontSize:20, color:'black', fontWeight:'bold', textAlign:'center' }}>451+  </option>
-                      </Select>
-                     </FormControl>
-
-
-                     <h3 className="label">Size (m2)</h3>
-                         <FormControl variant="outlined">
-                             <InputLabel
-
-                               htmlFor="outlined-age-native-simple"
-                             >
-
-                               </InputLabel>
-                               <Select
-                                 native
-                                 input={
-                                   <OutlinedInput
-
-                                   />
-                                 }
-                               >
-                                 <option value="" />
-                                 <option className="option" value={0-100} style={{fontSize:20, color:'black', fontWeight:'bold', textAlign:'ce' }}>0-30</option>
-                                 <option className="option" value={100-250} style={{fontSize:20, color:'black', fontWeight:'bold', textAlign:'center' }}>31 - 70  </option>
-                                 <option className="option" value={251-450} style={{fontSize:20, color:'black', fontWeight:'bold', textAlign:'center' }}>71 -200   </option>
-                                 <option className="option" value={451} style={{fontSize:20, color:'black', fontWeight:'bold', textAlign:'center' }}>200+  </option>
-                               </Select>
-                              </FormControl>
-
-
-
-
-
-                              <h3 className="label">Locations</h3>
-                                  <FormControl variant="outlined">
-                                      <InputLabel
-
-                                        htmlFor="outlined-age-native-simple"
-                                      >
-
-                                        </InputLabel>
-                                        <Select
-                                          native
-                                          input={
-                                            <OutlinedInput
-
-                                            />
-                                          }
-                                        >
-                                          <option value="" />
-                                          <option className="option" value={0-100} style={{fontSize:20, color:'black', fontWeight:'bold', textAlign:'ce' }}>Kamara</option>
-                                          <option className="option" value={100-250} style={{fontSize:20, color:'black', fontWeight:'bold', textAlign:'center' }}>Neapoli</option>
-                                          <option className="option" value={251-450} style={{fontSize:20, color:'black', fontWeight:'bold', textAlign:'center' }}>Faliro</option>
-                                          <option className="option" value={451} style={{fontSize:20, color:'black', fontWeight:'bold', textAlign:'center' }}>Kalamaria</option>
-                                        </Select>
-                                       </FormControl>
-      </form>
-
-      </Fragment>
-    )
+  componentDidMount() {
+    this.setState({
+      
+    });
   }
 
+  handleChange = event => {
+    this.setState({ [event.target.name]: event.target.value });
+  };
+
+  render() {
+    const { classes } = this.props;
+
+    return (
+      <form className={classes.root} autoComplete="off" >  
+
+
+        {/* Price Field */}
+        <FormControl variant="outlined" style={{marginTop:'40px'}} className={classes.formControl}>
+            <Typography className='fieldTitle' variant='display1' gutterBottom>Price (€)</Typography>
+                <Select
+                  value={this.state.price}
+                  onChange={this.handleChange}
+                  input={
+                    <OutlinedInput
+                      labelWidth={this.state.labelWidth}
+                      name="price"
+                    
+                    />
+                  }
+                  className='SelectedMenuItem'
+                >
+                  <MenuItem value="" className="MenuItem">
+                    <em>None</em>
+                  </MenuItem>
+                  <MenuItem value={10} className="MenuItem">Ten</MenuItem>
+                  <MenuItem value={20} className="MenuItem" >Twenty</MenuItem>
+                  <MenuItem value={30} className="MenuItem">Thirty</MenuItem>
+                </Select>
+        </FormControl>
+
+
+        {/* Size Field */}
+        <FormControl variant="outlined"  style={{marginTop:'40px'}} className={classes.formControl}>
+            <Typography className='fieldTitle' variant='display1' gutterBottom>Size (m2)</Typography>
+                <Select
+                  value={this.state.size}
+                  onChange={this.handleChange}
+                  input={
+                    <OutlinedInput
+                      labelWidth={this.state.labelWidth}
+                      name="size"
+                    
+                    />
+                  }
+                  className='SelectedMenuItem'
+                >
+                  <MenuItem value="" className="MenuItem">
+                    <em>None</em>
+                  </MenuItem>
+                  <MenuItem value={10} className="MenuItem">30</MenuItem>
+                  <MenuItem value={20} className="MenuItem" >50</MenuItem>
+                  <MenuItem value={30} className="MenuItem">80</MenuItem>
+                  <MenuItem value={30} className="MenuItem">90</MenuItem>
+                  <MenuItem value={30} className="MenuItem">100</MenuItem>
+                  <MenuItem value={30} className="MenuItem">120</MenuItem>
+
+                </Select>
+        </FormControl>
+
+
+        {/* Location Field */}
+        <FormControl variant="outlined" style={{marginTop:'40px'}} className={classes.formControl}>
+            <Typography className='fieldTitle' variant='display1' gutterBottom>Location (€)</Typography>
+                <Select
+                  value={this.state.location}
+                  onChange={this.handleChange}
+                  input={
+                    <OutlinedInput
+                      labelWidth={this.state.labelWidth}
+                      name="location"
+                    
+                    />
+                  }
+                  className='SelectedMenuItem'
+                >
+                  <MenuItem value="" className="MenuItem">
+                    <em>None</em>
+                  </MenuItem>
+                  <MenuItem value={10} className="MenuItem">Kalamaria</MenuItem>
+                  <MenuItem value={20} className="MenuItem" >Kalamaria</MenuItem>
+                  <MenuItem value={30} className="MenuItem">Toumpa</MenuItem>
+                </Select>
+        </FormControl>
+      </form>
+      
+    );
+  }
 }
 
+SimpleSelect.propTypes = {
+  classes: PropTypes.object.isRequired,
+};
 
-export default SearchForm;
+export default withStyles(styles)(SimpleSelect);
+
+
