@@ -31,7 +31,7 @@ componentDidMount(){
 
   render(){
     const houses = this.state.houses.map(house =>{
-      return <SingleEntity key={house.id} price={house.price} location={house.location} size={props.size}/>
+      return <SingleEntity key={house.id} price={house.price} location={house.location} size={house.size}/>
     }
     );
     return (<Fragment>

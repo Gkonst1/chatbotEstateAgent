@@ -2,60 +2,71 @@
 		"id":1,
 		"price":"100",
 		"size":"200",
-		"location":"Kamara"
+		"location":"Kamara",
+		"status":"buy"
+		
 
 	},
 	{
 		"id":2,
 		"price":"150",
 		"size":"100",
-		"location":"Mpotsari"
+		"location":"Mpotsari",
+		"status":"buy"
 	},
 	{
 		"id":3,
 		"price":"500",
 		"size":"300",
-		"location":"Toumpa"
+		"location":"Toumpa",
+		"status":"buy"
 	},
 	{
 		"id":4,
 		"price":"230",
 		"size":"70",
-		"location":"Kamara"
+		"location":"Kamara",
+		"status":"buy"
 	},
 	{
 		"id":5,
 		"price":"80",
 		"size":"25",
-		"location":"Ippolratous"
+		"location":"Ippolratous",
+		"status":"rent"
 	},
 	{
 		"id":6,
 		"price":"400",
 		"size":"120",
-		"location":"Ladadika"
+		"location":"Ladadika",
+		"status":"rent"
 	},
 	{
 		"id":7,
 		"price":"140",
 		"size":"30",
-		"location":"Eyosmos"
+		"location":"Eyosmos",
+		"status":"rent"
 	},
 	{
 		"id":8,
 		"price":"500",
 		"size":"100",
-		"location":"Kentro"
+		"location":"Kentro",
+		"status":"rent"
 	},
 	{
 		"id":9,
 		"price":"320",
 		"size":"10",
-		"location":"Xarilaou"
+		"location":"Xarilaou",
+		"status":"rent"
 	},
 	{
 		"id":10,
 		"price":"130",
 		"size":"300",
-		"location":"Aristotelous"
+		"location":"Aristotelous",
+		"status":"rent"
 	}]
