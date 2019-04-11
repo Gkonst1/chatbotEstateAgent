@@ -32,7 +32,7 @@ class SimpleSelect extends React.Component {
 
   componentDidMount() {
     this.setState({
-      
+
     });
   }
 
@@ -44,7 +44,7 @@ class SimpleSelect extends React.Component {
     const { classes } = this.props;
 
     return (
-      <form className={classes.root} autoComplete="off" >  
+      <form className={classes.root} autoComplete="off" >
 
 
         {/* Price Field */}
@@ -57,7 +57,7 @@ class SimpleSelect extends React.Component {
                     <OutlinedInput
                       labelWidth={this.state.labelWidth}
                       name="price"
-                    
+
                     />
                   }
                   className='SelectedMenuItem'
@@ -82,7 +82,7 @@ class SimpleSelect extends React.Component {
                     <OutlinedInput
                       labelWidth={this.state.labelWidth}
                       name="size"
-                    
+
                     />
                   }
                   className='SelectedMenuItem'
@@ -103,7 +103,7 @@ class SimpleSelect extends React.Component {
 
         {/* Location Field */}
         <FormControl variant="outlined" style={{marginTop:'40px'}} className={classes.formControl}>
-            <Typography className='fieldTitle' variant='display1' gutterBottom>Location (€)</Typography>
+            <Typography className='fieldTitle' variant='display1' gutterBottom>Location</Typography>
                 <Select
                   value={this.state.location}
                   onChange={this.handleChange}
@@ -111,7 +111,7 @@ class SimpleSelect extends React.Component {
                     <OutlinedInput
                       labelWidth={this.state.labelWidth}
                       name="location"
-                    
+
                     />
                   }
                   className='SelectedMenuItem'
@@ -125,7 +125,7 @@ class SimpleSelect extends React.Component {
                 </Select>
         </FormControl>
       </form>
-      
+
     );
   }
 }
@@ -135,5 +135,3 @@ SimpleSelect.propTypes = {
 };
 
 export default withStyles(styles)(SimpleSelect);
-
-

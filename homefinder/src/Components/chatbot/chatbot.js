@@ -8,57 +8,58 @@ import Results from '../TenantPage/resultsPage/results';
 import { Link } from 'react-router-dom';
 import Chatboticon from './chatboticon';
 
-class Review extends Component {
-  constructor(props) {
-    super(props);
+// class Review extends Component {
+//   constructor(props) {
+//     super(props);
+//
+//     this.state = {
+//       action: '',
+//       price: '',
+//       size: '',
+//     };
+//   }
+//
+//   componentWillMount() {
+//     const { steps } = this.props;
+//     const { action, price, size } = steps;
+//
+//     this.setState({ action, price, size });
+//   }
+//
+//   render() {
+//     const { action, price, size } = this.state;
+//     return (
+//       <div style={{ width: '100%' }}>
+//         <h3>Summary</h3>
+//         <table>
+//           <tbody>
+//             <tr>
+//               <td>Action</td>
+//               <td>{action.value}</td>
+//             </tr>
+//             <tr>
+//               <td>Price</td>
+//               <td>{price.value}</td>
+//             </tr>
+//             <tr>
+//               <td>Size</td>
+//               <td>{size.value}</td>
+//             </tr>
+//           </tbody>
+//         </table>
+//       </div>
+//     );
+//   }
+// }
 
-    this.state = {
-      action: '',
-      price: '',
-      size: '',
-    };
-  }
+// Review.propTypes = {
+//   steps: PropTypes.object,
+// };
+//
+// Review.defaultProps = {
+//   steps: undefined,
+// };
 
-  componentWillMount() {
-    const { steps } = this.props;
-    const { action, price, size } = steps;
-
-    this.setState({ action, price, size });
-  }
-
-  render() {
-    const { action, price, size } = this.state;
-    return (
-      <div style={{ width: '100%' }}>
-        <h3>Summary</h3>
-        <table>
-          <tbody>
-            <tr>
-              <td>Action</td>
-              <td>{action.value}</td>
-            </tr>
-            <tr>
-              <td>Price</td>
-              <td>{price.value}</td>
-            </tr>
-            <tr>
-              <td>Size</td>
-              <td>{size.value}</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-    );
-  }
-}
-
-Review.propTypes = {
-  steps: PropTypes.object,
-};
-
-Review.defaultProps = {
-  steps: undefined,
-};
 
 const string_to_array = function (str) {
   return str.trim().split(" ");
@@ -155,7 +156,7 @@ const steps = [
     id: 'update-question',
     options: [
       { value: 'yes', label: 'Yes', trigger: 'update-yes' },
-      { value: 'no', label: 'No', trigger: 'end-message' },
+      { value: 'no', label: 'No', trigger: 'endGreet' },
     ],
   },
   {
@@ -236,13 +237,26 @@ const steps = [
     trigger: '7',
   },
   {
-    id: 'end-message',
+    id: 'endGreet',
     message: 'Thanks! I hope i was helpful!',
+    trigger: 'nextStep'
+  },
+  {
+    id: 'nextStep',
+    options: [
+      {value:'Start Again!', label: 'Start Again!', trigger: '1.5'},
+      {value:'The End!', label: 'The End!', trigger: 'end-message'}
+    ]
+  },
+  {
+    id: 'end-message',
+    message: 'Good Bye my friend! Refresh the page in case you need me again. :D',
     end: true,
   },
 ];
 
 class Chatbot extends React.Component{
+
   render(){
     const style={
       marginRight: '3%',
@@ -258,6 +272,7 @@ class Chatbot extends React.Component{
           floating="true"
           floatingIcon={<Chatboticon/>}
           floatingStyle={style}
+          headerTitle="I'm your assistant!"
         />
       </div>
 
