@@ -143,6 +143,7 @@ const steps = [
   },
   {
     id: 'review',
+		delay: 1500,
     component: <Link to='/results'><p className="results" >Your Results</p></Link>,
     asMessage: true,
     trigger: 'update',
