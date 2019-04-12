@@ -49,7 +49,8 @@ class Tenant extends React.Component{
           <Fragment>
 
           <Grid item xs={12} className="submit-box" style={{textAlign:'center'}}>
-               <Link to='/results'><Button variant="contained" className="single-button" elevation='0' size="large"  style={
+               <Link to='/results'>
+               <Button onSubmit={this.handleSubmit} variant="contained" className="single-button" elevation='0' size="large"  style={
                     {width:'50%',
                     fontSize:19,
                     marginTop:150,

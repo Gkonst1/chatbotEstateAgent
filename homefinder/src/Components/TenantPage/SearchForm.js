@@ -30,22 +30,16 @@ class SimpleSelect extends React.Component {
     labelWidth: 0,
   };
 
-  componentDidMount() {
-    this.setState({
-      
-    });
-  }
 
   handleChange = event => {
     this.setState({ [event.target.name]: event.target.value });
   };
 
   render() {
-    const { classes } = this.props;
 
+    const { classes } = this.props;
     return (
       <form className={classes.root} autoComplete="off" >  
-
 
         {/* Price Field */}
         <FormControl variant="outlined" style={{marginTop:'40px'}} className={classes.formControl}>
