@@ -9,7 +9,6 @@ class Chatboticon extends React.Component{
       <div className="parent">
         <Fragment className="chatbot"><img src={bot} className="bot"/></Fragment>
       </div>
-
     )
   }
 }

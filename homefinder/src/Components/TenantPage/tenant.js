@@ -8,6 +8,7 @@ import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
 import SearchForm from './SearchForm';
 import SearchTypeButtons from './SearchTypeButtons';
+import Chatbot from '../chatbot/chatbot';
 
 const styles= {
   paper:{padding:20, margin:20, textAlign:'center'},
@@ -59,7 +60,7 @@ class Tenant extends React.Component{
                     backgroundColor:'#fff',
                     textDecorationLine:'none'
                      }}>
-                   SEARCH 
+                   SEARCH
                   </Button>
                   </Link>
                 </Grid>
@@ -67,6 +68,7 @@ class Tenant extends React.Component{
           </Fragment>
         </Grid>
         </Grid>{/* Grid Container Closing */}
+        <Chatbot/>
     </Fragment>
 
     )

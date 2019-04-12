@@ -5,6 +5,7 @@ import SearchForm from '../SearchForm';
 import Grid from '@material-ui/core/Grid';
 import SingleEntity from './SingleEntity';
 import axios from 'axios';
+import Chatbot from '../../chatbot/chatbot';
 
 
 const styles= {
@@ -21,7 +22,11 @@ state = {
   houses:[]
 }
 componentDidMount(){
-    axios.get('https://raw.githubusercontent.com/Gkonst1/chatbotEstateAgent/master/homefinder/src/test.json')
+    axios.get('https://raw.githubusercontent.com/Gkonst1/chatbotEstateAgent/master/homefinder/src/test.json',{
+      params:{
+        toPrice: 200,
+      }
+    })
     .then(response=>{
       this.setState({houses:response.data});
         console.log(response);
@@ -45,10 +50,10 @@ componentDidMount(){
             <SearchForm/>
           </Grid>
           <Grid item xs={12} sm={12} md={6} lg={6}  className="rightPanel" style={styles.rightPanel}>
-            {houses} 
+            {houses}
           </Grid>
       </Grid>
-
+      <Chatbot/>
       </Fragment>
     )
   }
