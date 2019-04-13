@@ -30,14 +30,12 @@ class SimpleSelect extends React.Component {
     labelWidth: 0,
   };
 
-<<<<<<< HEAD
-=======
+
   componentDidMount() {
     this.setState({
 
     });
   }
->>>>>>> 9df3198b180e5522d0a61a9824615e8e1feb5d71
 
   handleChange = event => {
     this.setState({ [event.target.name]: event.target.value });
