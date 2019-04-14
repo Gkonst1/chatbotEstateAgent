@@ -1,21 +1,18 @@
-import React, {Fragment, Component} from "react";
+import React from "react";
 import PropTypes from 'prop-types';
 import './chatbot.css';
 import bot from '../../icons and colors/chatbot.png';
 import ChatBot from 'react-simple-chatbot';
-import houses from '../houses.js';
-import Results from '../TenantPage/resultsPage/results';
 import { Link } from 'react-router-dom';
 import Chatboticon from './chatboticon';
 
 // class Review extends Component {
 //   constructor(props) {
 //     super(props);
-//
 //     this.state = {
-//       action: '',
-//       price: '',
-//       size: '',
+//       action: 0,
+//       price: 0,
+//       size: 0,
 //     };
 //   }
 //
@@ -25,7 +22,6 @@ import Chatboticon from './chatboticon';
 //
 //     this.setState({ action, price, size });
 //   }
-//
 //   render() {
 //     const { action, price, size } = this.state;
 //     return (
@@ -51,7 +47,7 @@ import Chatboticon from './chatboticon';
 //     );
 //   }
 // }
-
+//
 // Review.propTypes = {
 //   steps: PropTypes.object,
 // };
