@@ -28,6 +28,9 @@ const styles = theme => ({
 class SimpleSelect extends React.Component {
   state = {
     labelWidth: 0,
+    price:'',
+    size:'',
+    location:''
   };
 
 
@@ -39,6 +42,7 @@ class SimpleSelect extends React.Component {
 
   handleChange = event => {
     this.setState({ [event.target.name]: event.target.value });
+    console.log(event.target.value)
   };
 
   render() {
@@ -65,9 +69,9 @@ class SimpleSelect extends React.Component {
                   <MenuItem value="" className="MenuItem">
                     <em>None</em>
                   </MenuItem>
-                  <MenuItem value={10} className="MenuItem">Ten</MenuItem>
-                  <MenuItem value={20} className="MenuItem" >Twenty</MenuItem>
-                  <MenuItem value={30} className="MenuItem">Thirty</MenuItem>
+                  <MenuItem value={100} className="MenuItem">100</MenuItem>
+                  <MenuItem value={200} className="MenuItem" >200</MenuItem>
+                  <MenuItem value={300} className="MenuItem">300</MenuItem>
                 </Select>
         </FormControl>
 
@@ -90,12 +94,12 @@ class SimpleSelect extends React.Component {
                   <MenuItem value="" className="MenuItem">
                     <em>None</em>
                   </MenuItem>
-                  <MenuItem value={10} className="MenuItem">30</MenuItem>
-                  <MenuItem value={20} className="MenuItem" >50</MenuItem>
-                  <MenuItem value={30} className="MenuItem">80</MenuItem>
-                  <MenuItem value={30} className="MenuItem">90</MenuItem>
-                  <MenuItem value={30} className="MenuItem">100</MenuItem>
-                  <MenuItem value={30} className="MenuItem">120</MenuItem>
+                  <MenuItem value={30} className="MenuItem">30</MenuItem>
+                  <MenuItem value={50} className="MenuItem" >50</MenuItem>
+                  <MenuItem value={80} className="MenuItem">80</MenuItem>
+                  <MenuItem value={90} className="MenuItem">90</MenuItem>
+                  <MenuItem value={100} className="MenuItem">100</MenuItem>
+                  <MenuItem value={120} className="MenuItem">120</MenuItem>
 
                 </Select>
         </FormControl>
