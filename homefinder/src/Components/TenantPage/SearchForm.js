@@ -30,9 +30,9 @@ class SimpleSelect extends React.Component {
     super();
     this.state = {
       labelWidth: 0,
-      price:'',
-      size:'',
-      location:''
+      price:sessionStorage.getItem('price'),
+      size:sessionStorage.getItem('size'),
+      location:sessionStorage.getItem('location')
     }
   }
 
@@ -41,14 +41,18 @@ class SimpleSelect extends React.Component {
 
    handleChange = async (event) => {
      await this.setState({ [event.target.name]: event.target.value});
-    
-    let cPrice = window.sessionStorage.setItem('price', this.state.price);
+     window.sessionStorage.setItem('price', this.state.price);
+     window.sessionStorage.setItem('size', this.state.size);
+     window.sessionStorage.setItem('location', this.state.location);
+     //consoleCheck
+     let cPrice =sessionStorage.getItem('price');
 
-    let cSize = window.sessionStorage.setItem('size', this.state.size);
+    let cSize = sessionStorage.getItem('size');
    
-    
+    let cLocation = sessionStorage.getItem('location');
 
-    let cLocation = window.sessionStorage.setItem('location', this.state.location);
+
+    console.log(`${cPrice} + ${cSize} + ${cLocation}`)
    
     // console.log(this.state.price);
     // let cLocation = this.state.location;

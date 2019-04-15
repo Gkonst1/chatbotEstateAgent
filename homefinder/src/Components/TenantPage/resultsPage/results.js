@@ -24,7 +24,7 @@ class Results extends React.Component{
     super(props);
     this.state={
         houses:[],
-        price:sessionStorage.getItem('price'),
+        price:100,
     }
   }
 
@@ -60,7 +60,7 @@ componentDidMount(){
       <Grid container spacing={40}>
 
           <Grid item xs={12} sm={12} md={6} lg={6}  className="leftPanel" style={styles.leftPanel}>
-            <SearchForm price={this.props.price} />
+            <SearchForm price={this.state.price} />
           </Grid>
           <Grid item xs={12} sm={12} md={6} lg={6}  className="rightPanel" style={styles.rightPanel}>
             {houses}
