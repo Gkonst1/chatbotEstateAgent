@@ -9,7 +9,7 @@ import Euro from '../../../icons and colors/euro.svg'
 
 const SingleEntity = (props) =>(
  <Fragment >
-        <Grid container className="singleEntity" xs={12} >
+        <Grid container className="singleEntity">
             <Grid item xs={12} className="image" 
             style={{  backgroundImage:`url(${props.image})` ,
             backgroundPosition: 'center',
@@ -19,7 +19,7 @@ const SingleEntity = (props) =>(
 
             <Grid item xs={12} className="entityDescription" >
             
-                <Grid item xs={7} justify="center" className="entityDescription_singleItem">
+                <Grid item xs={7} className="entityDescription_singleItem">
                   <img src={Pin} alt="location:" className="icon"></img>{props.location}
                 </Grid>
                 

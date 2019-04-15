@@ -26,24 +26,22 @@ const styles = theme => ({
 });
 
 class SimpleSelect extends React.Component {
-  state = {
-    labelWidth: 0,
-    price:'',
-    size:'',
-    location:''
-  };
-
-
-  componentDidMount() {
-    this.setState({
-
-    });
+  constructor(props){
+    super();
+    this.state = {
+      labelWidth: 0,
+      price:'',
+      size:'',
+      location:''
+    }
   }
-
+ 
+//This handlechange takes the input of the form items
   handleChange = event => {
     this.setState({ [event.target.name]: event.target.value });
     console.log(event.target.value)
   };
+
 
   render() {
 
@@ -123,9 +121,9 @@ class SimpleSelect extends React.Component {
                   <MenuItem value="" className="MenuItem">
                     <em>None</em>
                   </MenuItem>
-                  <MenuItem value={10} className="MenuItem">Kalamaria</MenuItem>
-                  <MenuItem value={20} className="MenuItem" >Kalamaria</MenuItem>
-                  <MenuItem value={30} className="MenuItem">Toumpa</MenuItem>
+                  <MenuItem value={'kalamaria'} className="MenuItem">Kalamaria</MenuItem>
+                  <MenuItem value={'toumpa'} className="MenuItem" >Toumpa</MenuItem>
+                  <MenuItem value={'kamara'} className="MenuItem">Kamara</MenuItem>
                 </Select>
         </FormControl>
       </form>

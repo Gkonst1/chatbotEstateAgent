@@ -20,12 +20,11 @@ const styles= {
 }
 
 class Tenant extends React.Component{
+  
   render(){
     return(<Fragment>
       <Header/>
-        <Grid container spacing={48}>
-
-
+        <Grid container spacing={40}>
         {/* Title */}
           <Grid item xs={12}>
             <Paper style={styles.paper} elevation={0} >

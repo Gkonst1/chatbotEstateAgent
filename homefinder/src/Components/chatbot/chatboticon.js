@@ -7,7 +7,7 @@ class Chatboticon extends React.Component{
   render(){
     return (
       <div className="parent">
-        <Fragment className="chatbot"><img src={bot} className="bot" alt="chatbotImg"/></Fragment>
+        <Fragment><img src={bot} className="bot" alt="chatbotImg"/></Fragment>
       </div>
     )
   }
