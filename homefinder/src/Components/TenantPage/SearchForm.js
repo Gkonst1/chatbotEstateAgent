@@ -35,12 +35,28 @@ class SimpleSelect extends React.Component {
       location:''
     }
   }
- 
+
+
+
+
+   handleChange = async (event) => {
+     await this.setState({ [event.target.name]: event.target.value});
+    
+    let cPrice = window.sessionStorage.setItem('price', this.state.price);
+
+    let cSize = window.sessionStorage.setItem('size', this.state.size);
+   
+    
+
+    let cLocation = window.sessionStorage.setItem('location', this.state.location);
+   
+    // console.log(this.state.price);
+    // let cLocation = this.state.location;
+    // let cSize = this.state.size;
+    // console.log('The size is: ' + cSize + ' ,' + 'The price is: ' + cPrice + 'the location is ' + cLocation);
+  }
+
 //This handlechange takes the input of the form items
-  handleChange = event => {
-    this.setState({ [event.target.name]: event.target.value });
-    console.log(event.target.value)
-  };
 
 
   render() {
@@ -54,7 +70,9 @@ class SimpleSelect extends React.Component {
             <Typography className='fieldTitle' variant='display1' gutterBottom>Price (€)</Typography>
                 <Select
                   value={this.state.price}
+                  price={this.state.price}
                   onChange={this.handleChange}
+                  className='price'
                   input={
                     <OutlinedInput
                       labelWidth={this.state.labelWidth}

@@ -19,22 +19,23 @@ const styles= {
 class Results extends React.Component{
 
   constructor(props){
+
+
     super(props);
     this.state={
         houses:[],
-  price:this.props.state,
+        price:sessionStorage.getItem('price'),
     }
   }
 
-handleParentData = (formModel) =>{
-  this.setState({...this.formModel})
-}
-
 
 componentDidMount(){
+  for(var i in localStorage) {
+    console.log(i + ' = ' + localStorage[i]);
+}
     axios.get('https://raw.githubusercontent.com/Gkonst1/chatbotEstateAgent/master/homefinder/src/test.json',{
       params:{
-        toPrice: this.state.price ,
+        toPrice: 200,
       }
       
     })
@@ -59,7 +60,7 @@ componentDidMount(){
       <Grid container spacing={40}>
 
           <Grid item xs={12} sm={12} md={6} lg={6}  className="leftPanel" style={styles.leftPanel}>
-            <SearchForm handleData = {this.handleParentData} />
+            <SearchForm price={this.props.price} />
           </Grid>
           <Grid item xs={12} sm={12} md={6} lg={6}  className="rightPanel" style={styles.rightPanel}>
             {houses}
