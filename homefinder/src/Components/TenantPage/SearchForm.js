@@ -38,7 +38,6 @@ class SimpleSelect extends React.Component {
 
 
 
-
    handleChange = async (event) => {
      await this.setState({ [event.target.name]: event.target.value});
      window.sessionStorage.setItem('price', this.state.price);
