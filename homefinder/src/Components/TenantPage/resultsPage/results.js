@@ -32,7 +32,8 @@ componentDidMount(){
 }
     axios.get('https://vikings-chatbot.herokuapp.com/house/results',{
       params:{
-        toPrice:sessionStorage.getItem('price'),
+        toPrice: sessionStorage.getItem('price'),
+				toSize: sessionStorage.getItem('size'),
       }
 
     })

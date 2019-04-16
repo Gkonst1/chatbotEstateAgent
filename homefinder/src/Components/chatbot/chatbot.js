@@ -10,9 +10,9 @@ class Review extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-			price:sessionStorage.getItem('price'),
-      size:sessionStorage.getItem('size'),
-      location:sessionStorage.getItem('location'),
+			price: sessionStorage.getItem('price'),
+      size: sessionStorage.getItem('size'),
+      location: sessionStorage.getItem('location'),
     };
   }
 
@@ -20,21 +20,19 @@ class Review extends React.Component {
     const { steps } = this.props;
     const { action, price, size } = steps;
 
-    this.setState({ action, price, size });
+    this.setState({action, price, size });
 		window.sessionStorage.setItem('price', price.value);
 		window.sessionStorage.setItem('size', size.value);
 		window.sessionStorage.setItem('location', this.state.location);
   }
 	handleSubmit = ()=> {
 	  window.location.reload();
-		console.log(sessionStorage.getItem('price'));
+		console.log(sessionStorage.getItem('size'));
 	}
   render() {
     const { action, price, size } = this.state;
-    return (
-			<Link to='/results'><p className="results" onClick={this.handleSubmit}>Your Results</p></Link>
-    );
-  }
+    return <Link to='/results'><p className="results" onClick={this.handleSubmit}>Your Results</p></Link>;
+	};
 }
 
 Review.propTypes = {
