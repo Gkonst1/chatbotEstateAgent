@@ -9,20 +9,22 @@ import { Link } from 'react-router-dom';
 const styles = theme => ({
   root: {
     flexGrow: 1,
+    zIndex:1001
   },
   paper: {
     padding: theme.spacing.unit * 1.2,
     textAlign: 'center',
     backgroundColor: '#f16c51',
     fontWeight: 700,
-    fontSize: '50px',
+    fontSize: '40px',
     color: 'white',
     textTransform: 'uppercase',
     textDecoration: 'none',
+    zIndex:1000
   },
   smallLogo:{
     width: '4%',
-    height: 'auto',
+    height: '60px',
     float: 'left',
     marginLeft: '2%',
     marginTop: '0.3%',

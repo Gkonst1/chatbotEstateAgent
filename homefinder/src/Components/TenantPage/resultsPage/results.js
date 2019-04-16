@@ -6,13 +6,13 @@ import Grid from '@material-ui/core/Grid';
 import SingleEntity from './SingleEntity';
 import axios from 'axios';
 import Chatbot from '../../chatbot/chatbot';
-
+import Button from '@material-ui/core/Button';
 
 const styles= {
   paper:{padding:20, margin:20, textAlign:'center'},
   text:{color:'#000', fontWeight:600},
   rightIcon:{marginleft:30},
-  leftPanel:{ height:'100%', display:'flex', flexDirection:'row' },
+  leftPanel:{ height:'100%', display:'flex', flexDirection:'column', width:'0%' },
   rightPanel:{padding:29},
 }
 
@@ -33,9 +33,9 @@ componentDidMount(){
   for(var i in localStorage) {
     console.log(i + ' = ' + localStorage[i]);
 }
-    axios.get('https://raw.githubusercontent.com/Gkonst1/chatbotEstateAgent/master/homefinder/src/test.json',{
+    axios.get('https://vikings-chatbot.herokuapp.com/house/results',{
       params:{
-        toPrice: 200,
+        toPrice:sessionStorage.getItem('price'),
       }
       
     })
@@ -46,7 +46,14 @@ componentDidMount(){
     });
 }
 
+handleSubmit = ()=> {
+  // await this.setState({ [event.target.name]: event.target.value});
+  // window.sessionStorage.setItem('price', this.state.price);
+  // window.sessionStorage.setItem('size', this.state.size);
+  // window.sessionStorage.setItem('location', this.state.location);
+  window.location.reload();
 
+}
   render(){
     const houses = this.state.houses.map(house =>{
       return <SingleEntity key={house.id} price={house.price} location={house.location} size={house.size} image={house.image}/>
@@ -60,11 +67,26 @@ componentDidMount(){
       <Grid container spacing={40}>
 
           <Grid item xs={12} sm={12} md={6} lg={6}  className="leftPanel" style={styles.leftPanel}>
-            <SearchForm price={this.state.price} />
+            <SearchForm />
+            <Grid item xs={12} className="submit-box" style={{textAlign:'center'}}>
+               
+               <Button onClick={this.handleSubmit} variant="contained" className="single-button" elevation='0' size="large"  style={
+                    {width:'50%',
+                    fontSize:19,
+                    marginTop:150,
+                    fontWeight:'700',
+                    color:'#000',
+                    backgroundColor:'#fff',
+                    textDecorationLine:'none'
+                     }}>
+                   SEARCH
+                  </Button>
+                </Grid>
           </Grid>
           <Grid item xs={12} sm={12} md={6} lg={6}  className="rightPanel" style={styles.rightPanel}>
             {houses}
           </Grid>
+         
       </Grid>
       <Chatbot/>
       </Fragment>

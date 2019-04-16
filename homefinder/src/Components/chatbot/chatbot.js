@@ -1,5 +1,4 @@
 import React from "react";
-import PropTypes from 'prop-types';
 import './chatbot.css';
 import bot from '../../icons and colors/chatbot.png';
 import ChatBot from 'react-simple-chatbot';
@@ -228,6 +227,7 @@ const steps = [
         return 'value should be a positive number';
       }else{
         return true;
+       
       }
     },
     update: 'size',
