@@ -1,60 +1,48 @@
 import React from "react";
+import PropTypes from 'prop-types';
 import './chatbot.css';
 import bot from '../../icons and colors/chatbot.png';
 import ChatBot from 'react-simple-chatbot';
 import { Link } from 'react-router-dom';
 import Chatboticon from './chatboticon';
 
-// class Review extends Component {
-//   constructor(props) {
-//     super(props);
-//     this.state = {
-//       action: 0,
-//       price: 0,
-//       size: 0,
-//     };
-//   }
-//
-//   componentWillMount() {
-//     const { steps } = this.props;
-//     const { action, price, size } = steps;
-//
-//     this.setState({ action, price, size });
-//   }
-//   render() {
-//     const { action, price, size } = this.state;
-//     return (
-//       <div style={{ width: '100%' }}>
-//         <h3>Summary</h3>
-//         <table>
-//           <tbody>
-//             <tr>
-//               <td>Action</td>
-//               <td>{action.value}</td>
-//             </tr>
-//             <tr>
-//               <td>Price</td>
-//               <td>{price.value}</td>
-//             </tr>
-//             <tr>
-//               <td>Size</td>
-//               <td>{size.value}</td>
-//             </tr>
-//           </tbody>
-//         </table>
-//       </div>
-//     );
-//   }
-// }
-//
-// Review.propTypes = {
-//   steps: PropTypes.object,
-// };
-//
-// Review.defaultProps = {
-//   steps: undefined,
-// };
+class Review extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+			price:sessionStorage.getItem('price'),
+      size:sessionStorage.getItem('size'),
+      location:sessionStorage.getItem('location'),
+    };
+  }
 
+  componentWillMount() {
+    const { steps } = this.props;
+    const { action, price, size } = steps;
+
+    this.setState({ action, price, size });
+		window.sessionStorage.setItem('price', price.value);
+		window.sessionStorage.setItem('size', size.value);
+		window.sessionStorage.setItem('location', this.state.location);
+  }
+	handleSubmit = ()=> {
+	  window.location.reload();
+		console.log(sessionStorage.getItem('price'));
+	}
+  render() {
+    const { action, price, size } = this.state;
+    return (
+			<Link to='/results'><p className="results" onClick={this.handleSubmit}>Your Results</p></Link>
+    );
+  }
+}
+
+Review.propTypes = {
+  steps: PropTypes.object,
+};
+Review.defaultProps = {
+  steps: undefined,
+};
 
 const string_to_array = function (str) {
   return str.trim().split(" ");
@@ -62,10 +50,15 @@ const string_to_array = function (str) {
 
 const steps = [
   {
-    id: '1',
-    message: 'Hello, can I help you?',
-    trigger: '1.5',
+    id: '0',
+    message: 'Hello my friend! Can I help you?',
+    trigger: '1',
   },
+	{
+		id:'1',
+		user:true,
+		trigger: '1.5',
+	},
   {
       id: '1.5',
       delay: 1500,
@@ -139,7 +132,7 @@ const steps = [
   {
     id: 'review',
 		delay: 1500,
-    component: <Link to='/results'><p className="results" >Your Results</p></Link>,
+    component: <Review/>,
     asMessage: true,
     trigger: 'update',
   },
@@ -227,7 +220,7 @@ const steps = [
         return 'value should be a positive number';
       }else{
         return true;
-       
+
       }
     },
     update: 'size',

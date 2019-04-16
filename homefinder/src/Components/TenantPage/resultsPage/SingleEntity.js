@@ -10,7 +10,7 @@ import Euro from '../../../icons and colors/euro.svg'
 const SingleEntity = (props) =>(
  <Fragment >
         <Grid container className="singleEntity">
-            <Grid item xs={12} className="image" 
+            <Grid item xs={12} className="image"
             style={{  backgroundImage:`url(${props.image})` ,
             backgroundPosition: 'center',
             backgroundSize: 'cover',
@@ -18,20 +18,20 @@ const SingleEntity = (props) =>(
             </Grid>
 
             <Grid item xs={12} className="entityDescription" >
-            
+
                 <Grid item xs={7} className="entityDescription_singleItem">
                   <img src={Pin} alt="location:" className="icon"></img>{props.location}
                 </Grid>
-                
+
                 <Grid item xs={5} className="entityDescription_singleItem">
                     <img src={Size} alt='Size:' className='icon'></img> {props.size}
                 </Grid>
                 <Grid item xs={2} className="entityDescription_singleItem">
                     <img src={Euro} alt='price: ' className='icon'></img>{props.price}
                 </Grid>
-                
+
             </Grid>
-                 
+
         </Grid>
 
     </Fragment>

@@ -17,10 +17,7 @@ const styles= {
 }
 
 class Results extends React.Component{
-
   constructor(props){
-
-
     super(props);
     this.state={
         houses:[],
@@ -37,26 +34,22 @@ componentDidMount(){
       params:{
         toPrice:sessionStorage.getItem('price'),
       }
-      
+
     })
     .then(response=>{
       this.setState({houses:response.data});
         console.log(response);
-       
+
     });
 }
 
 handleSubmit = ()=> {
-  // await this.setState({ [event.target.name]: event.target.value});
-  // window.sessionStorage.setItem('price', this.state.price);
-  // window.sessionStorage.setItem('size', this.state.size);
-  // window.sessionStorage.setItem('location', this.state.location);
   window.location.reload();
-
 }
+
   render(){
     const houses = this.state.houses.map(house =>{
-      return <SingleEntity key={house.id} price={house.price} location={house.location} size={house.size} image={house.image}/>
+      return <SingleEntity key={house.id} price={house.price} location={house.location} size={house.size} image={house.image} contact={house.contact}/>
     }
     );
     return (<Fragment>
@@ -67,16 +60,16 @@ handleSubmit = ()=> {
       <Grid container spacing={40}>
 
           <Grid item xs={12} sm={12} md={6} lg={6}  className="leftPanel" style={styles.leftPanel}>
-            <SearchForm />
+            <SearchForm/>
             <Grid item xs={12} className="submit-box" style={{textAlign:'center'}}>
-               
+
                <Button onClick={this.handleSubmit} variant="contained" className="single-button" elevation='0' size="large"  style={
-                    {width:'50%',
+                    {width:'40%',
                     fontSize:19,
                     marginTop:150,
                     fontWeight:'700',
                     color:'#000',
-                    backgroundColor:'#fff',
+                    backgroundColor:'#f16c51',
                     textDecorationLine:'none'
                      }}>
                    SEARCH
@@ -86,7 +79,7 @@ handleSubmit = ()=> {
           <Grid item xs={12} sm={12} md={6} lg={6}  className="rightPanel" style={styles.rightPanel}>
             {houses}
           </Grid>
-         
+
       </Grid>
       <Chatbot/>
       </Fragment>

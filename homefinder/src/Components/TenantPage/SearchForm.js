@@ -14,6 +14,7 @@ const styles = theme => ({
     display: 'flex',
     flexDirection :'column',
     flexWrap: 'wrap',
+		width:'40%'
   },
   formControl: {
     margin: theme.spacing.unit,
@@ -44,8 +45,6 @@ class SimpleSelect extends React.Component {
      window.sessionStorage.setItem('price', this.state.price);
      window.sessionStorage.setItem('size', this.state.size);
      window.sessionStorage.setItem('location', this.state.location);
-        
-   
   }
 
 
