@@ -23,14 +23,14 @@ class Review extends React.Component {
     this.setState({action, price, size, location });
 		window.sessionStorage.setItem('price', price.value);
 		window.sessionStorage.setItem('size', size.value);
-		window.sessionStorage.setItem('location', location.value.toUpperCase());
+		window.sessionStorage.setItem('location', location.value);
   }
 	handleSubmit = ()=> {
 	  window.location.reload();
-		console.log(sessionStorage.getItem('size'));
+		console.log(sessionStorage.getItem('location'));
 	}
   render() {
-    const { action, price, size } = this.state;
+    const { action, price, size, location } = this.state;
     return <Link to='/results'><p className="results" onClick={this.handleSubmit}>Your Results</p></Link>;
 	};
 }
@@ -39,13 +39,12 @@ Review.propTypes = {
   steps: PropTypes.object,
 };
 Review.defaultProps = {
-  steps: undefined,
+  steps: "",
 };
 
 const string_to_array = function (str) {
   return str.trim().split(" ");
   };
-
 const steps = [
   {
     id: '0',
@@ -129,22 +128,14 @@ const steps = [
   },
   {
     id:'location',
-    user:true,
-    validator:(value)=>{
-      let result;
-      const data = string_to_array(value);
-      for (var x in data){
-      data[x]= data[x].toLowerCase();
-      if (typeof(data[x])==='string'){
-          result= true;
-        }else
-        {
-          result= 'Please give me a real location';
-        }
-      }
-      return result;
-    },
-    trigger:'7'
+		options: [
+      { value: 'Toumpa', label: 'Toumpa', trigger: '7' },
+      { value: 'Kalamaria', label: 'Kalamaria', trigger: '7' },
+      { value: 'Kentro', label: 'Kentro', trigger: '7' },
+			{ value: 'Charilaou', label: 'Charilaou', trigger: '7' },
+			{ value: 'Panepistimia', label: 'Panepistimia', trigger: '7' },
+			{ value: 'Evosmos', label: 'Evosmos', trigger: '7' },
+    ]
   },
   {
     id: '7',
@@ -181,6 +172,7 @@ const steps = [
       { value: 'action', label: 'action', trigger: 'update-action-q' },
       { value: 'price', label: 'price', trigger: 'update-price-q' },
       { value: 'size', label: 'size', trigger: 'update-size-q' },
+			{ value: 'location', label: 'location', trigger: 'update-location-q' },
     ],
   },
   {
@@ -207,7 +199,7 @@ const steps = [
     return result;
   },
     update: 'action',
-    trigger: '7',
+    trigger: 'update-ends-q',
   },
   {
     id: 'update-price-q',
@@ -226,7 +218,7 @@ const steps = [
       }
     },
     update: 'price',
-    trigger: '7',
+    trigger: 'update-ends-q',
   },
   {
     id: 'update-size-q',
@@ -246,8 +238,25 @@ const steps = [
       }
     },
     update: 'size',
-    trigger: '7',
+    trigger: 'update-ends-q',
   },
+	{
+		id: 'update-location-q',
+		message: 'So what is your new preferable location?',
+		trigger: 'location'
+	},
+	{
+		id: 'update-ends-q',
+		message: 'Do you want to update more filters?',
+		trigger: 'update-ends'
+	},
+	{
+		id: 'update-ends',
+		options: [
+      { value: 'yes', label: 'yes', trigger: 'update-yes'},
+      { value: 'no', label: 'no', trigger: '7'},
+    ],
+	},
   {
     id: 'endGreet',
     message: 'Thanks! I hope i was helpful!',

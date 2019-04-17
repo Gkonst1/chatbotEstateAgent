@@ -38,7 +38,6 @@ label{
 	margin: 0;
 	padding: 0;
 	font-size: 18px;
-	margin-left: 10%;
 }
 .properties{
 	overflow-y: scroll;
@@ -62,7 +61,6 @@ figcaption{
 }
 .rightPanel{
 	overflow-y: auto;
-	margin-right: 15px;
+	margin-right: 5%;
 	padding-top: 29px;
-	direction: ltr!important;
 }

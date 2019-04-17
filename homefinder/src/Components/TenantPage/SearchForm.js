@@ -13,7 +13,7 @@ const styles = theme => ({
   root: {
     display: 'flex',
     flexWrap: 'wrap',
-		width:'50%',
+		width:'30vh',
     flexDirection: 'column',
     alignSelf: "center"
   },

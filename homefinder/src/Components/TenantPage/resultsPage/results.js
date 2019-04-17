@@ -59,10 +59,10 @@ handleSubmit = ()=> {
       <Header/>
 
 
-      <Grid container xs={8} style={{marginLeft:'20%', marginRight:'20%',display:'flex',flexWrap:'wrap-reverse'}}>
-        <Scrollbar style={{width: '50%',
+      <Grid container xs={8} style={{marginLeft:'15%', marginRight:'15%',display:'flex',flexWrap:'wrap-reverse'}}>
+        <Scrollbar style={{width: '50%',minWidth:'300px',
         height: '90vh',direction:'ltr'}} rtl>
-          <Grid item xs={12} sm={12} md={6} lg={6}  className="rightPanel" style={styles.rightPanel,{maxWidth:'100%',paddingRight:'10px',paddingLeft:'5%'}}>
+          <Grid item xs={12} sm={12} md={6} lg={6}  className="rightPanel" style={styles.rightPanel,{maxWidth:'100%',paddingRight:'10px',paddingLeft:'2vh'}}>
             {houses}
           </Grid>
         </Scrollbar>
@@ -73,7 +73,8 @@ handleSubmit = ()=> {
                <Button onClick={this.handleSubmit} variant="contained" className="single-button" elevation='0' size="large"  style={
                     {width:'30%',
                     fontSize:19,
-                    marginTop:150,
+                    marginTop:130,
+										marginBottom:'30vh',
                     fontWeight:'700',
                     color:'white',
                     backgroundColor:'#f16c51',
