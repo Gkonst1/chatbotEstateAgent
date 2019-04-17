@@ -12,14 +12,16 @@ import MenuItem from '@material-ui/core/MenuItem';
 const styles = theme => ({
   root: {
     display: 'flex',
-    flexDirection :'column',
     flexWrap: 'wrap',
-		width:'40%'
+		width:'50%',
+    flexDirection: 'column',
+    alignSelf: "center"
   },
   formControl: {
     margin: theme.spacing.unit,
     minWidth: 300,
-    color:'primary'
+    color:'primary',
+    textAlign:'center',
   },
   selectEmpty: {
     marginTop: theme.spacing.unit * 4,
@@ -33,7 +35,8 @@ class SimpleSelect extends React.Component {
       labelWidth: 0,
       price:sessionStorage.getItem('price'),
       size:sessionStorage.getItem('size'),
-      location:sessionStorage.getItem('location')
+      location:sessionStorage.getItem('location'),
+      status:sessionStorage.getItem('status'),
     }
   }
 
@@ -53,7 +56,7 @@ class SimpleSelect extends React.Component {
 
     const { classes } = this.props;
     return (
-      <form className={classes.root} autoComplete="off" >
+      <form className={classes.root} autoComplete="off">
 
         {/* Price Field */}
         <FormControl variant="outlined" style={{marginTop:'40px'}} className={classes.formControl}>
@@ -129,9 +132,9 @@ class SimpleSelect extends React.Component {
                   <MenuItem value="" className="MenuItem">
                     <em>None</em>
                   </MenuItem>
-                  <MenuItem value={'kalamaria'} className="MenuItem">Kalamaria</MenuItem>
-                  <MenuItem value={'toumpa'} className="MenuItem" >Toumpa</MenuItem>
-                  <MenuItem value={'kamara'} className="MenuItem">Kamara</MenuItem>
+                  <MenuItem value={'Kalamaria'} className="MenuItem">Kalamaria</MenuItem>
+                  <MenuItem value={'Toumpa'} className="MenuItem" >Toumpa</MenuItem>
+                  <MenuItem value={'Charilaou'} className="MenuItem">Charilaou</MenuItem>
                 </Select>
         </FormControl>
       </form>

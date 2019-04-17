@@ -10,11 +10,11 @@ import './SearchTypeButtons.scss';
 
 const styles = theme => ({
   root: {
-  
+
   },
   formControl: {
     margin: theme.spacing.unit * 3,
-   
+
   },
   group: {
     display:'flex',
@@ -28,11 +28,12 @@ const styles = theme => ({
 
 class RadioButtonsGroup extends React.Component {
   state = {
-    value: '',
+    status: 'Rent',
   };
 
   handleChange = event => {
     this.setState({ value: event.target.value });
+    window.sessionStorage.setItem('status', event.target.value);
   };
 
   render() {
@@ -46,11 +47,11 @@ class RadioButtonsGroup extends React.Component {
             value={this.state.value}
             onChange={this.handleChange}
           >
-            <FormControlLabel className="SingleBtn mr-util" value="Rent" control={<Radio />} label={<Typography style={{color:'white'}} variant="display1">Rent</Typography>} />
+            <FormControlLabel className="SingleBtn mr-util" value="Rent" control={<Radio/>} label={<Typography style={{color:'white'}} variant="display1">Rent</Typography>} />
             <FormControlLabel className="SingleBtn" value="Buy" control={<Radio />} label={<Typography style={{color:'white'}} variant="display1">Buy</Typography>} />
           </RadioGroup>
         </FormControl>
-        
+
       </div>
     );
   }

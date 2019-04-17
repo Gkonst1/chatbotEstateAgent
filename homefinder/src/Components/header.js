@@ -9,7 +9,9 @@ import { Link } from 'react-router-dom';
 const styles = theme => ({
   root: {
     flexGrow: 1,
-    zIndex:1001
+    zIndex:1001,
+    overflowX: 'hidden',
+    overflowY: 'hidden',
   },
   paper: {
     padding: theme.spacing.unit * 1.2,

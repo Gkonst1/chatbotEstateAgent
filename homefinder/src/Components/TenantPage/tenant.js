@@ -20,8 +20,8 @@ const styles= {
 }
 
 class Tenant extends React.Component{
-  
-  
+
+
   render(){
     return(<Fragment>
       <Header/>
@@ -51,7 +51,7 @@ class Tenant extends React.Component{
 
           <Grid item xs={12} className="submit-box" style={{textAlign:'center'}}>
                <Link to='/results'>
-               <Button onSubmit={this.handleSubmit} variant="contained" className="single-button" elevation='0' size="large"  style={
+               <Button onSubmit={<Link to='/results'><p className="results" onClick={this.handleSubmit}>Your Results</p></Link>} variant="contained" className="single-button" elevation='0' size="large"  style={
                     {width:'50%',
                     fontSize:19,
                     marginTop:150,

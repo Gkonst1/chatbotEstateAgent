@@ -18,12 +18,12 @@ class Review extends React.Component {
 
   componentWillMount() {
     const { steps } = this.props;
-    const { action, price, size } = steps;
+    const { action, price, size, location } = steps;
 
-    this.setState({action, price, size });
+    this.setState({action, price, size, location });
 		window.sessionStorage.setItem('price', price.value);
 		window.sessionStorage.setItem('size', size.value);
-		window.sessionStorage.setItem('location', this.state.location);
+		window.sessionStorage.setItem('location', location.value.toUpperCase());
   }
 	handleSubmit = ()=> {
 	  window.location.reload();
@@ -120,7 +120,31 @@ const steps = [
         return true;
       }
     },
-    trigger: '7'
+    trigger: '6'
+  },
+  {
+    id: '6',
+    message:'Please give me where your new location should be!',
+    trigger:'location',
+  },
+  {
+    id:'location',
+    user:true,
+    validator:(value)=>{
+      let result;
+      const data = string_to_array(value);
+      for (var x in data){
+      data[x]= data[x].toLowerCase();
+      if (typeof(data[x])==='string'){
+          result= true;
+        }else
+        {
+          result= 'Please give me a real location';
+        }
+      }
+      return result;
+    },
+    trigger:'7'
   },
   {
     id: '7',

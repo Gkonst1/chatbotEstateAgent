@@ -45,8 +45,6 @@ label{
 	height: 560px;
 }
 .image{
-	width: 750px;
-	height: 500px;
 	float: right;
 }
 figcaption{
@@ -58,8 +56,13 @@ figcaption{
 }
 .leftPanel{
 	position: sticky!important;
+	display: flex;
+	width: 100%!important;
+	justify-content: space-around;
 }
 .rightPanel{
-	overflow-y: scroll;
-	height: 100vh;;
+	overflow-y: auto;
+	margin-right: 15px;
+	padding-top: 29px;
+	direction: ltr!important;
 }
