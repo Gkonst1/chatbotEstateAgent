@@ -51,7 +51,7 @@ handleSubmit = ()=> {
 
   render(){
     const houses = this.state.houses.map(house =>{
-      return <SingleEntity key={house.id} price={house.price} location={house.location} size={house.size} image={house.image} contact={house.contact}/>
+      return <SingleEntity key={house.id} price={house.price} location={house.location} size={house.size} image={house.image} contact={house.contact} status={house.status}/>
     }
     );
     return (<Fragment>
