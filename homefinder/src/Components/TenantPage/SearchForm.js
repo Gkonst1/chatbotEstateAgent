@@ -45,9 +45,21 @@ class SimpleSelect extends React.Component {
 
    handleChange = async (event) => {
      await this.setState({ [event.target.name]: event.target.value});
-     window.sessionStorage.setItem('price', this.state.price);
-     window.sessionStorage.setItem('size', this.state.size);
-     window.sessionStorage.setItem('location', this.state.location);
+     if(this.state.price===null){
+       window.sessionStorage.setItem('price', '')
+     }else{
+       window.sessionStorage.setItem('price', this.state.price);
+     }
+     if(this.state.size===null){
+       window.sessionStorage.setItem('size', '');
+     }else{
+       window.sessionStorage.setItem('size', this.state.size);
+     }
+     if(this.state.location===null){
+       window.sessionStorage.setItem('location', '');
+     }else{
+       window.sessionStorage.setItem('location', this.state.location);
+     }
   }
 
 
@@ -81,6 +93,10 @@ class SimpleSelect extends React.Component {
                   <MenuItem value={100} className="MenuItem">100</MenuItem>
                   <MenuItem value={200} className="MenuItem" >200</MenuItem>
                   <MenuItem value={300} className="MenuItem">300</MenuItem>
+                  <MenuItem value={400} className="MenuItem">400</MenuItem>
+                  <MenuItem value={500} className="MenuItem">500</MenuItem>
+                  <MenuItem value={600} className="MenuItem">600</MenuItem>
+                  <MenuItem value={700} className="MenuItem">700</MenuItem>
                 </Select>
         </FormControl>
 
@@ -103,12 +119,13 @@ class SimpleSelect extends React.Component {
                   <MenuItem value="" className="MenuItem">
                     <em>None</em>
                   </MenuItem>
-                  <MenuItem value={30} className="MenuItem">30</MenuItem>
-                  <MenuItem value={50} className="MenuItem" >50</MenuItem>
-                  <MenuItem value={80} className="MenuItem">80</MenuItem>
-                  <MenuItem value={90} className="MenuItem">90</MenuItem>
-                  <MenuItem value={100} className="MenuItem">100</MenuItem>
-                  <MenuItem value={120} className="MenuItem">120</MenuItem>
+                  <MenuItem value={30} className="MenuItem">30+</MenuItem>
+                  <MenuItem value={50} className="MenuItem" >50+</MenuItem>
+                  <MenuItem value={80} className="MenuItem">80+</MenuItem>
+                  <MenuItem value={90} className="MenuItem">90+</MenuItem>
+                  <MenuItem value={100} className="MenuItem">100+</MenuItem>
+                  <MenuItem value={120} className="MenuItem">120+</MenuItem>
+                  <MenuItem value={150} className="MenuItem">150+</MenuItem>
 
                 </Select>
         </FormControl>
@@ -135,6 +152,9 @@ class SimpleSelect extends React.Component {
                   <MenuItem value={'Kalamaria'} className="MenuItem">Kalamaria</MenuItem>
                   <MenuItem value={'Toumpa'} className="MenuItem" >Toumpa</MenuItem>
                   <MenuItem value={'Charilaou'} className="MenuItem">Charilaou</MenuItem>
+                  <MenuItem value={'Panepistimia'} className="MenuItem">Panepistimia</MenuItem>
+                  <MenuItem value={'Evosmos'} className="MenuItem">Evosmos</MenuItem>
+                  <MenuItem value={'Kentro'} className="MenuItem">Kentro</MenuItem>
                 </Select>
         </FormControl>
       </form>

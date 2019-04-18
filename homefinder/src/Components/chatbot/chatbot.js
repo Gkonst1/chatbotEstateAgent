@@ -26,8 +26,13 @@ class Review extends React.Component {
 		window.sessionStorage.setItem('location', location.value);
   }
 	handleSubmit = ()=> {
-	  window.location.reload();
-		console.log(sessionStorage.getItem('location'));
+    if (window.location!="http://localhost:3000/results"){
+      console.log(window.location);
+    }
+    else{
+      window.location.reload();
+     console.log(sessionStorage.getItem('location'));
+    }
 	}
   render() {
     const { action, price, size, location } = this.state;
@@ -135,6 +140,7 @@ const steps = [
 			{ value: 'Charilaou', label: 'Charilaou', trigger: '7' },
 			{ value: 'Panepistimia', label: 'Panepistimia', trigger: '7' },
 			{ value: 'Evosmos', label: 'Evosmos', trigger: '7' },
+      { value: '', label: 'All', trigger: '7' }
     ]
   },
   {
