@@ -11,10 +11,10 @@ import SearchTypeButtons from './SearchTypeButtons';
 import Chatbot from '../chatbot/chatbot';
 
 const styles= {
-  paper:{padding:20, margin:20, textAlign:'center'},
+  paper:{padding:20, margin:20, textAlign:'center',justifyContent:'center'},
   text:{color:'#000', fontWeight:600},
   rightIcon:{marginleft:30},
-  leftPanel:{ height:'100%' },
+  leftPanel:{ height:'100%',justify:'center'},
   rightPanel:{padding:29},
 
 }
@@ -25,7 +25,7 @@ class Tenant extends React.Component{
   render(){
     return(<Fragment>
       <Header/>
-        <Grid container spacing={40}>
+        <Grid container spacing={40} className='container' style={{justifyContent:'center'}}>
         {/* Title */}
           <Grid item xs={12}>
             <Paper style={styles.paper} elevation={0} >
@@ -38,26 +38,27 @@ class Tenant extends React.Component{
 
 
         {/* Left Panel */}
-        <Grid item xs={12} sm={12} md={6} lg={6}  className="leftPanel" style={styles.leftPanel}>
+        <Grid item xs={12} >
+          <SearchTypeButtons/>
           <SearchForm/>
         </Grid>
 
 
 
         {/* Right Panel */}
-        <Grid item xs={12} sm={12} md={6} lg={6} style={styles.rightPanel} >
-            <SearchTypeButtons/>
+        <Grid item xs={12} style={{width:'90%'}}>
+
           <Fragment>
 
           <Grid item xs={12} className="submit-box" style={{textAlign:'center'}}>
                <Link to='/results'>
                <Button onSubmit={<Link to='/results'><p className="results" onClick={this.handleSubmit}>Your Results</p></Link>} variant="contained" className="single-button" elevation='0' size="large"  style={
-                    {width:'50%',
+                    {width:'20%',
                     fontSize:19,
-                    marginTop:150,
+                    marginTop:75,
                     fontWeight:'700',
-                    color:'#000',
-                    backgroundColor:'#fff',
+                    color:'white',
+                    backgroundColor:'#f16c51',
                     textDecorationLine:'none'
                      }}>
                    SEARCH
