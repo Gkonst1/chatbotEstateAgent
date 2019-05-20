@@ -4,6 +4,7 @@ import Welcome from './welcome';
 import Instructions from './instructions';
 import Chatbot from '../chatbot/chatbot';
 import { Link } from 'react-router-dom';
+import DialogFlow from "../dialogflow/DialogFlow";
 
 class Home extends React.Component{
   render(){
@@ -17,7 +18,8 @@ class Home extends React.Component{
             <Link to='/tenant' className="button tenant"><h3 className="tenant">I'm Tenant</h3></Link>
           </div>
         </div>
-        <Chatbot/>
+        {/* <Chatbot/> */}
+        <DialogFlow/>
       </div>
     );
   }
