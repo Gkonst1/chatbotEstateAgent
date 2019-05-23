@@ -8,6 +8,8 @@ import Typography from '@material-ui/core/Typography';
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 import MenuItem from '@material-ui/core/MenuItem';
+import TextField from '@material-ui/core/TextField';
+
 
 const styles = theme => ({
   root: {
@@ -28,7 +30,12 @@ const styles = theme => ({
   }
 });
 
+
+
 class SimpleSelect extends React.Component {
+
+ 
+
   constructor(props){
     super();
     this.state = {
@@ -41,7 +48,6 @@ class SimpleSelect extends React.Component {
   }
 
 
-//This handlechange takes the input of the form items
 
    handleChange = async (event) => {
      await this.setState({ [event.target.name]: event.target.value});
@@ -62,10 +68,23 @@ class SimpleSelect extends React.Component {
      }
   }
 
+  handleChangeSize(event){
+     
+      console.log(event.target.value)
+
+      return function () {window.sessionStorage.setItem('size', this.state.size);
+        console.log(this.state.size + ' this is size')
+        if(this.state.size > 0){
+          window.sessionStorage.setItem('size', '')
+        }else{
+          window.sessionStorage.setItem('size', this.state.size);
+        }
+      }
+  };
 
 
   render() {
-
+    let input;
     const { classes } = this.props;
     return (
       <form className={classes.root} autoComplete="off">
@@ -128,6 +147,45 @@ class SimpleSelect extends React.Component {
                   <MenuItem value={150} className="MenuItem">150+</MenuItem>
 
                 </Select>
+           {/* <TextField
+              id="outlined-bare"
+              className='SelectedMenuItem'
+            
+              margin="normal"
+              variant="outlined"
+              // onChange={this.handleChangeSize}
+              // defaultValue={this.state.size}
+              // value={this.state.size}
+              onChange={this.handleChangeSize}
+           
+              input={
+                
+                <OutlinedInput
+              
+              
+                  labelWidth={this.state.labelWidth}
+                  name="size"
+
+                />
+              }
+              />
+
+ */}
+
+          {/* <TextField
+          id="standard-number"
+          label="Number"
+          value={this.state.size}
+          onChange={this.handleChangeSize}
+          type="number"
+       
+          InputLabelProps={{
+            shrink: true,
+          }}
+          margin="normal"
+          />
+                 */}
+          
         </FormControl>
 
 

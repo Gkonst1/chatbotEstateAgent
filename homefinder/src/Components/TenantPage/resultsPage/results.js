@@ -8,6 +8,7 @@ import axios from 'axios';
 import Chatbot from '../../chatbot/chatbot';
 import Button from '@material-ui/core/Button';
 import Scrollbar from 'react-scrollbars-custom';
+import NoResults from '../resultsPage/NoResults';
 
 const styles= {
   text:{color:'#000', fontWeight:600},
@@ -50,48 +51,66 @@ handleSubmit = ()=> {
 }
 
   render(){
-    const houses = this.state.houses.map(house =>{
-      return <SingleEntity key={house.id} price={house.price} location={house.location} size={house.size} image={house.image} contact={house.contact} status={house.status}/>
+    
+
+   
+
+
+
+      let showResults;
+      if(this.state.houses.length === 0) {
+        showResults = <NoResults/>
+        }else{
+        showResults = this.state.houses.map(house =>{
+          console.log()
+    
+            return <SingleEntity key={house.id} price={house.price} location={house.location} size={house.size} image={house.image} contact={house.contact} status={house.status}/>
+        
+          } 
+    
+    
+        )
+        }
+  
+      return (
+      <Fragment>
+        <Header/>
+  
+        <Grid container style={{marginLeft:'15%', marginRight:'15%',display:'flex',flexWrap:'wrap-reverse'}}>
+          <Scrollbar style={{width: '50%',minWidth:'300px',
+          height: '90vh',direction:'ltr'}} rtl>
+            <Grid item xs={12} sm={12} md={6} lg={6}  className="rightPanel" style={{maxWidth:'100%',paddingRight:'10px',paddingLeft:'2vh'}}>              
+              {showResults} 
+            </Grid>
+          </Scrollbar>
+            <Grid item xs={12} sm={12} md={6} lg={6}  className="leftPanel" style={styles.leftPanel}>
+              <SearchForm/>
+              <Grid item xs={12} className="submit-box" style={{textAlign:'center'}}>
+  
+                 <Button onClick={this.handleSubmit} variant="contained" className="single-button" elevation='0' size="large"  style={
+                      {width:'30%',
+                      fontSize:19,
+                      marginTop:130,
+                      marginBottom:'30vh',
+                      fontWeight:'700',
+                      color:'white',
+                      backgroundColor:'#f16c51',
+                      textDecorationLine:'none'
+                       }}>
+                     SEARCH
+                    </Button>
+                  </Grid>
+            </Grid>
+          </Grid>
+        <Chatbot/>
+        </Fragment>
+  
+      )
     }
-    );
-    return (<Fragment>
-
-      <Header/>
-
-
-      <Grid container xs={8} style={{marginLeft:'15%', marginRight:'15%',display:'flex',flexWrap:'wrap-reverse'}}>
-        <Scrollbar style={{width: '50%',minWidth:'300px',
-        height: '90vh',direction:'ltr'}} rtl>
-          <Grid item xs={12} sm={12} md={6} lg={6}  className="rightPanel" style={styles.rightPanel,{maxWidth:'100%',paddingRight:'10px',paddingLeft:'2vh'}}>
-            {houses}
-          </Grid>
-        </Scrollbar>
-          <Grid item xs={12} sm={12} md={6} lg={6}  className="leftPanel" style={styles.leftPanel}>
-            <SearchForm/>
-            <Grid item xs={12} className="submit-box" style={{textAlign:'center'}}>
-
-               <Button onClick={this.handleSubmit} variant="contained" className="single-button" elevation='0' size="large"  style={
-                    {width:'30%',
-                    fontSize:19,
-                    marginTop:130,
-										marginBottom:'30vh',
-                    fontWeight:'700',
-                    color:'white',
-                    backgroundColor:'#f16c51',
-                    textDecorationLine:'none'
-                     }}>
-                   SEARCH
-                  </Button>
-                </Grid>
-          </Grid>
-
-
-      </Grid>
-      <Chatbot/>
-      </Fragment>
-    )
   }
-}
+
+   
+
 
 
 export default Results;
