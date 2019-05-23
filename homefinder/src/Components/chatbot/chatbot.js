@@ -10,6 +10,7 @@ class Review extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      status: sessionStorage.getItem('status'),
 			price: sessionStorage.getItem('price'),
       size: sessionStorage.getItem('size'),
       location: sessionStorage.getItem('location'),
@@ -20,11 +21,35 @@ class Review extends React.Component {
     const { steps } = this.props;
     const { action, price, size, location } = steps;
 
-    this.setState({action, price, size, location });
+    if (willUpdateA){
+      action.value= updatedA;
+    }else{
+      action.value= intent;
+    }
+    if (willUpdateA){
+      action.value= updatedA;
+    }else{
+      action.value= intent;
+    }
+    if (willUpdateP){
+      price.value= updatedP;
+    }else{
+
+    }
+    if (willUpdateS){
+      size.value= updatedS;
+    }else{
+
+    }
+
+    this.setState({ action, price, size, location });
+
+    window.sessionStorage.setItem('status', action.value);
 		window.sessionStorage.setItem('price', price.value);
 		window.sessionStorage.setItem('size', size.value);
 		window.sessionStorage.setItem('location', location.value);
   }
+
 	handleSubmit = ()=> {
     if (window.location!="http://localhost:3000/results"){
       console.log(window.location);
@@ -50,6 +75,17 @@ Review.defaultProps = {
 const string_to_array = function (str) {
   return str.trim().split(" ");
   };
+
+
+let intent= sessionStorage.getItem('status'),
+    idValue,
+    willUpdateA,
+    updatedA,
+    willUpdateP,
+    updatedP,
+    willUpdateS,
+    updatedS
+
 const steps = [
   {
     id: '0',
@@ -73,20 +109,24 @@ const steps = [
     validator: (value) => {
       let result;
       const data = string_to_array(value);
+      willUpdateA= false;
       for (var x in data){
       data[x]= data[x].toLowerCase();
       if (data[x].includes("rent")){
+        intent= 'Rent';
         result= true;
       }else if (data[x].includes("buy")){
+        intent= 'Buy';
         result= true;
       }else
       {
-        result= 'Do you want to Buy or Rent';
+        idValue= 1.5;
+        result= true;
       }
     }
     return result;
   },
-    trigger: '3',
+   trigger: ({value}) => value.toLowerCase().includes('rent') || value.toLowerCase().includes('buy') ? '3' : 'error'
   },
   {
     id: '3',
@@ -97,15 +137,20 @@ const steps = [
     id: 'price',
     user: true,
     validator: (value) => {
+      let result;
+      willUpdateP= false;
       if (isNaN(value)) {
-        return 'value should be a number';
+        idValue= 3;
+        result= true;
       }else if( value <= 0){
-        return 'value should be a positive number';
+        idValue= 3;
+        result= true;
       }else{
-        return true;
+        result= true;
       }
+      return result;
     },
-    trigger: '5',
+    trigger: ({value}) => isNaN(value) ? 'notNumberError' : value <=0 ? 'notPositiveNumberError' : '5',
   },
   {
     id: '5',
@@ -116,15 +161,20 @@ const steps = [
     id: 'size',
     user: true,
     validator: (value) => {
+      let result;
+      willUpdateS= false;
       if (isNaN(value)) {
-        return 'value should be a number';
+        idValue= 5;
+        result= true;
       }else if( value <= 0){
-        return 'value should be a positive number';
+        idValue= 5;
+        result= true;
       }else{
-        return true;
+        result= true;
       }
+      return result;
     },
-    trigger: '6'
+    trigger: ({value}) => isNaN(value) ? 'notNumberError' : value<=0 ? 'notPositiveNumberError' : '6',
   },
   {
     id: '6',
@@ -140,7 +190,7 @@ const steps = [
 			{ value: 'Charilaou', label: 'Charilaou', trigger: '7' },
 			{ value: 'Panepistimia', label: 'Panepistimia', trigger: '7' },
 			{ value: 'Evosmos', label: 'Evosmos', trigger: '7' },
-      { value: '', label: 'All', trigger: '7' }
+      { value: '', label: 'All', trigger: '7' },
     ]
   },
   {
@@ -184,67 +234,82 @@ const steps = [
   {
     id: 'update-action-q',
     message: 'So do you want to Buy or Rent?',
-    trigger: 'update-action'
+    trigger: 'update-action',
   },
   {
     id: 'update-action',
+    user: true,
     validator: (value) => {
       let result;
       const data = string_to_array(value);
       for (var x in data){
       data[x]= data[x].toLowerCase();
-      if (data[x] === 'rent'){
+      if (data[x].includes("rent")){
+        updatedA= 'Rent';
         result= true;
-      }else if (data[x] === 'buy'){
+      }else if (data[x].includes("buy")){
+        updatedA= 'Buy';
         result= true;
       }else
       {
-        result= 'Do you want to Buy or Rent';
+        idValue= 'update-action-q';
+        result= true;
       }
     }
+    willUpdateA=true;
     return result;
   },
-    update: 'action',
-    trigger: 'update-ends-q',
+    trigger: ({value}) => value.toLowerCase().includes('rent') || value.toLowerCase().includes('buy') ? 'update-ends-q' : 'error',
   },
   {
     id: 'update-price-q',
     message: 'So what is your new budget?',
-    trigger: 'update-price'
+    trigger: 'update-price',
   },
   {
     id: 'update-price',
+    user:true,
     validator: (value) => {
+      let result;
       if (isNaN(value)) {
-        return 'value should be a number';
+        idValue= 'update-price-q';
+        result= true;
       }else if( value <= 0){
-        return 'value should be a positive number';
+        idValue= 'update-price-q';
+        result= true;
       }else{
-        return true;
+        updatedP= value;
+        result= true;
       }
+      willUpdateP= true;
+      return result;
     },
-    update: 'price',
-    trigger: 'update-ends-q',
+    trigger: ({value}) => isNaN(value) ? 'notNumberError' : value<=0 ? 'notPositiveNumberError' : 'update-ends-q',
   },
   {
     id: 'update-size-q',
     message: 'So what is your new preferable size?',
-    trigger: 'update-size'
+    trigger: 'update-size',
   },
   {
     id: 'update-size',
+    user: true,
     validator: (value) => {
+      let result;
       if (isNaN(value)) {
-        return 'value should be a number';
+        idValue= 'update-size-q';
+        result= true;
       }else if( value <= 0){
-        return 'value should be a positive number';
+        idValue= 'update-size-q';
+        result= true;
       }else{
-        return true;
-
+        updatedS= value;
+        result= true;
       }
+      willUpdateS= true;
+      return result;
     },
-    update: 'size',
-    trigger: 'update-ends-q',
+    trigger: ({value}) => isNaN(value) ? 'notNumberError' : value<=0 ? 'notPositiveNumberError' : 'update-ends-q',
   },
 	{
 		id: 'update-location-q',
@@ -280,6 +345,21 @@ const steps = [
     message: 'Good Bye my friend! Refresh the page in case you need me again. :D',
     end: true,
   },
+  {
+    id:'error',
+    message: 'Sorry can you rephrase?',
+    trigger: ()=> true ? idValue : idValue,
+  },
+  {
+    id:'notNumberError',
+    message: 'Sorry, your answer must be number :)',
+    trigger: ()=> true ? idValue : idValue,
+  },
+  {
+    id:'notPositiveNumberError',
+    message: 'Sorry, your answer must be a positive number :)',
+    trigger: ()=> true ? idValue : idValue,
+  }
 ];
 
 class Chatbot extends React.Component{

@@ -18,8 +18,7 @@ class Home extends React.Component{
             <Link to='/tenant' className="button tenant"><h3 className="tenant">I'm Tenant</h3></Link>
           </div>
         </div>
-        {/* <Chatbot/> */}
-        <DialogFlow/>
+        <Chatbot/>
       </div>
     );
   }
