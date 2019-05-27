@@ -26,20 +26,15 @@ class Review extends React.Component {
     }else{
       action.value= intent;
     }
-    if (willUpdateA){
-      action.value= updatedA;
-    }else{
-      action.value= intent;
-    }
     if (willUpdateP){
       price.value= updatedP;
     }else{
-
+			price.value= defaultP;
     }
     if (willUpdateS){
       size.value= updatedS;
     }else{
-
+			size.value= defaultS;
     }
 
     this.setState({ action, price, size, location });
@@ -83,8 +78,10 @@ let intent= sessionStorage.getItem('status'),
     updatedA,
     willUpdateP,
     updatedP,
+		defaultP= sessionStorage.getItem('price'),
     willUpdateS,
-    updatedS
+    updatedS,
+		defaultS= sessionStorage.getItem('size')
 
 const steps = [
   {
@@ -146,6 +143,7 @@ const steps = [
         idValue= 3;
         result= true;
       }else{
+				defaultP=value;
         result= true;
       }
       return result;
@@ -170,6 +168,7 @@ const steps = [
         idValue= 5;
         result= true;
       }else{
+				defaultS=value;
         result= true;
       }
       return result;
@@ -352,12 +351,12 @@ const steps = [
   },
   {
     id:'notNumberError',
-    message: 'Sorry, your answer must be number :)',
+    message: 'Sorry, your answer must be a number, e.g. 500',
     trigger: ()=> true ? idValue : idValue,
   },
   {
     id:'notPositiveNumberError',
-    message: 'Sorry, your answer must be a positive number :)',
+    message: 'Sorry, your answer must be a positive number, e.g. 500',
     trigger: ()=> true ? idValue : idValue,
   }
 ];
