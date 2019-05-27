@@ -46,7 +46,7 @@ class Review extends React.Component {
   }
 
 	handleSubmit = ()=> {
-    if (window.location!="http://localhost:3000/results"){
+    if (window.location!=="http://localhost:3000/results"){
       console.log(window.location);
     }
     else{
@@ -55,7 +55,6 @@ class Review extends React.Component {
     }
 	}
   render() {
-    const { action, price, size, location } = this.state;
     return <Link to='/results'><p className="results" onClick={this.handleSubmit}>Your Results</p></Link>;
 	};
 }

@@ -4,7 +4,6 @@ import Welcome from './welcome';
 import Instructions from './instructions';
 import Chatbot from '../chatbot/chatbot';
 import { Link } from 'react-router-dom';
-import DialogFlow from "../dialogflow/DialogFlow";
 
 class Home extends React.Component{
   render(){

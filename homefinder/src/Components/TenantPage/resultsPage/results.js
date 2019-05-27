@@ -51,9 +51,9 @@ handleSubmit = ()=> {
 }
 
   render(){
-    
 
-   
+
+
 
 
 
@@ -63,30 +63,30 @@ handleSubmit = ()=> {
         }else{
         showResults = this.state.houses.map(house =>{
           console.log()
-    
+
             return <SingleEntity key={house.id} price={house.price} location={house.location} size={house.size} image={house.image} contact={house.contact} status={house.status}/>
-        
-          } 
-    
-    
+
+          }
+
+
         )
         }
-  
+
       return (
       <Fragment>
         <Header/>
-  
+
         <Grid container style={{marginLeft:'15%', marginRight:'15%',display:'flex',flexWrap:'wrap-reverse'}}>
           <Scrollbar style={{width: '50%',minWidth:'300px',
           height: '90vh',direction:'ltr'}} rtl>
-            <Grid item xs={12} sm={12} md={6} lg={6}  className="rightPanel" style={{maxWidth:'100%',paddingRight:'10px',paddingLeft:'2vh'}}>              
-              {showResults} 
+            <Grid item xs={12} sm={12} md={6} lg={6}  className="rightPanel" style={{maxWidth:'100%',paddingRight:'10px',paddingLeft:'2vh'}}>
+              {showResults}
             </Grid>
           </Scrollbar>
             <Grid item xs={12} sm={12} md={6} lg={6}  className="leftPanel" style={styles.leftPanel}>
               <SearchForm/>
               <Grid item xs={12} className="submit-box" style={{textAlign:'center'}}>
-  
+
                  <Button onClick={this.handleSubmit} variant="contained" className="single-button" elevation='0' size="large"  style={
                       {width:'30%',
                       fontSize:19,
@@ -104,12 +104,12 @@ handleSubmit = ()=> {
           </Grid>
         <Chatbot/>
         </Fragment>
-  
+
       )
     }
   }
 
-   
+
 
 
 
