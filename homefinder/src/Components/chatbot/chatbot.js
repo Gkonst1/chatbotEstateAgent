@@ -47,15 +47,14 @@ class Review extends React.Component {
 
 	handleSubmit = ()=> {
     if (window.location!=="http://localhost:3000/results"){
-      console.log(window.location);
+			window.location="http://localhost:3000/results";
     }
     else{
       window.location.reload();
-     console.log(sessionStorage.getItem('location'));
     }
 	}
   render() {
-    return <Link to='/results'><p className="results" onClick={this.handleSubmit}>Your Results</p></Link>;
+    return <Link to='/results'><p className="results" onClick={this.handleSubmit}>Press here to see your results!</p></Link>;
 	};
 }
 

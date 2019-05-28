@@ -15,6 +15,17 @@ const styles= {
   rightIcon:{marginleft:30},
   leftPanel:{ height:'100%', display:'flex', flexDirection:'column', width:'100%'},
 }
+let styleLoader={
+	display:'block'
+}
+let styleResults={
+	display:'none'
+}
+
+function showPage(){
+	styleLoader={display: 'none'};
+	styleResults={display: 'block'};
+}
 
 class Results extends React.Component{
   constructor(props){
@@ -22,14 +33,11 @@ class Results extends React.Component{
     this.state={
         houses:[],
         price:100,
+				noResults: false,
     }
   }
 
-
-componentDidMount(){
-  for(var i in localStorage) {
-    console.log(i + ' = ' + localStorage[i]);
-}
+	componentDidMount(){
     axios.get('https://vikings-chatbot.herokuapp.com/house/results',{
       params:{
         toPrice: sessionStorage.getItem('price'),
@@ -42,36 +50,36 @@ componentDidMount(){
     .then(response=>{
       this.setState({houses:response.data});
         console.log(response);
+				if(response.data.length==0){
+					this.setState({noResults: true});
+				}
+    	}
+		);
+		showPage();
+	}
 
-    });
-}
-
-handleSubmit = ()=> {
-  window.location.reload();
-}
+	handleSubmit = ()=> {
+  	window.location.reload();
+	}
 
   render(){
+    let showResults,
+		 		loader=<div id="loader" style={styleLoader}></div>;
 
-
-
-
-
-
-      let showResults;
-      if(this.state.houses.length === 0) {
-        showResults = <NoResults/>
-        }else{
-        showResults = this.state.houses.map(house =>{
-          console.log()
-
-            return <SingleEntity key={house.id} price={house.price} location={house.location} size={house.size} image={house.image} contact={house.contact} status={house.status}/>
-
-          }
-
-
-        )
-        }
-
+		if(this.state.noResults){
+			showResults=<NoResults/>
+    }else{
+	  	showResults = this.state.houses.map(house =>{
+	      return(
+					<SingleEntity
+						key={house.id} price={house.price} location={house.location} size={house.size} image={house.image} contact={house.contact} status={house.status}
+						class="animate-bottom"
+						id="myDiv"
+						style={styleResults}
+					/>)
+	      }
+	    )
+	  };
       return (
       <Fragment>
         <Header/>
@@ -80,7 +88,7 @@ handleSubmit = ()=> {
           <Scrollbar style={{width: '50%',minWidth:'300px',
           height: '90vh',direction:'ltr'}} rtl>
             <Grid item xs={12} sm={12} md={6} lg={6}  className="rightPanel" style={{maxWidth:'100%',paddingRight:'10px',paddingLeft:'2vh'}}>
-              {showResults}
+							{loader}{showResults}
             </Grid>
           </Scrollbar>
             <Grid item xs={12} sm={12} md={6} lg={6}  className="leftPanel" style={styles.leftPanel}>
