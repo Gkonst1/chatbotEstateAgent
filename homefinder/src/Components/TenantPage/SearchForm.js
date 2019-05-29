@@ -49,6 +49,7 @@ class SimpleSelect extends React.Component {
     }  
 
     this.handleSizeChange = this.handleSizeChange.bind(this);
+    this.handlePriceChange = this.handlePriceChange.bind(this);
   }
 
 
@@ -89,8 +90,23 @@ handleSizeChange(e) {
   
     console.log(this.state.size)
   });
-  
 }
+
+handlePriceChange(e) {
+  let priceValue = e.target.value;
+  this.setState({
+    price: priceValue
+  },() =>{
+    if(this.state.price===null){
+      window.sessionStorage.setItem('price', '');
+    }else{
+      window.sessionStorage.setItem('price', this.state.price);
+    }
+  
+    console.log(this.state.price)
+  });
+}
+
 
 
 //   handleSizeChange(event) {
@@ -147,7 +163,7 @@ handleSizeChange(e) {
         {/* Price Field */}
         <FormControl variant="outlined" style={{marginTop:'40px'}} className={classes.formControl}>
             <Typography className='fieldTitle' variant='display1' gutterBottom>Price (€)</Typography>
-                <Select
+                {/* <Select
                   value={this.state.price}
                   price={this.state.price}
                   onChange={this.handleChange}
@@ -171,14 +187,25 @@ handleSizeChange(e) {
                   <MenuItem value={500} className="MenuItem">500</MenuItem>
                   <MenuItem value={600} className="MenuItem">600</MenuItem>
                   <MenuItem value={700} className="MenuItem">700</MenuItem>
-                </Select>
+                </Select> */}
+                    <TextField
+                    id="outlined-bare"
+                    // className={classes.textField}
+                    type='number'
+                    defaultValue={this.state.price}
+                    margin="normal"
+                    variant="outlined"
+                    className='price'
+                    onChange={this.handlePriceChange}
+                    // ref={(input) => this.input = input}
+                   />
         </FormControl>
 
 
         {/* Size Field */}
-        {/* <FormControl variant="outlined"  style={{marginTop:'40px'}} className={classes.formControl}>
+        <FormControl variant="outlined"  style={{marginTop:'40px'}} className={classes.formControl}>
             <Typography className='fieldTitle' variant='display1' gutterBottom>Size (m2)</Typography>
-                <Select
+                {/* <Select
                   value={this.state.size}
                   onChange={this.handleChange}
                   input={
@@ -201,13 +228,13 @@ handleSizeChange(e) {
                   <MenuItem value={120} className="MenuItem">120+</MenuItem>
                   <MenuItem value={150} className="MenuItem">150+</MenuItem>
 
-                </Select>
-        </FormControl> */}
+                </Select> */}
+        </FormControl>
         <FormControl>
         <TextField
         id="outlined-bare"
         // className={classes.textField}
-        type='text'
+        type='number'
         defaultValue={this.state.size}
         margin="normal"
         variant="outlined"
