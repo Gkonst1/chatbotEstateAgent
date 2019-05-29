@@ -6,8 +6,8 @@ import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
-import SearchForm from '../TenantPage/SearchForm';
-import SearchTypeButtons from '../TenantPage/SearchTypeButtons';
+import SubmitForm from './SubmitForm';
+import StatusButtons from './StatusButtons';
 import Chatbot from '../chatbot/chatbot';
 
 const styles= {
@@ -19,7 +19,7 @@ const styles= {
 
 }
 
-class Tenant extends React.Component{
+class Landlord extends React.Component{
 
 
  render(){
@@ -39,8 +39,8 @@ class Tenant extends React.Component{
 
        {/* Left Panel */}
        <Grid item xs={12} >
-         <SearchTypeButtons/>
-         <SearchForm/>
+         <StatusButtons/>
+         <SubmitForm/>
        </Grid>
 
 
@@ -51,8 +51,8 @@ class Tenant extends React.Component{
          <Fragment>
 
          <Grid item xs={12} className="submit-box" style={{textAlign:'center'}}>
-              <Link to='/results'>
-              <Button onSubmit={<Link to='/results'><p className="results" onClick={this.handleSubmit}>Your Results</p></Link>} variant="contained" className="single-button" elevation='0' size="large"  style={
+              <Link to='/yourEntry'>
+              <Button onSubmit={<Link to='/yourEntry'><p className="results" onClick={this.handleSubmit}>Your Entry</p></Link>} variant="contained" className="single-button" elevation='0' size="large"  style={
                    {width:'20%',
                    fontSize:19,
                    marginTop:75,
@@ -76,4 +76,4 @@ class Tenant extends React.Component{
  }
 }
 
-export default Tenant ;
+export default Landlord ;
