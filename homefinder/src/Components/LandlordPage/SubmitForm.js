@@ -46,10 +46,12 @@ class SimpleSelect extends React.Component {
       sizeSubmit:sessionStorage.getItem('sizeSubmit'),
       locationSubmit:sessionStorage.getItem('locationSubmit'),
       statusSubmit:sessionStorage.getItem('statusSubmit'),
+      phoneSubmit:sessionStorage.getItem('phoneSubmit')
     }
 
     this.handleSizeChange = this.handleSizeChange.bind(this);
     this.handlePriceChange = this.handlePriceChange.bind(this);
+    this.handlePhoneNumber = this.handlePhoneNumber.bind(this);
   }
 
 
@@ -71,9 +73,26 @@ class SimpleSelect extends React.Component {
      }else{
        window.sessionStorage.setItem('locationSubmit', this.state.locationSubmit);
      }
+     if(this.state.phoneSubmit===null){
+      window.sessionStorage.setItem('phoneSubmit', '');
+    }else{
+      window.sessionStorage.setItem('phoneSubmit', this.state.phoneSubmit);
+    }
   }
 
 
+handlePhoneNumber(e){
+  let phoneValue = e.target.value;
+  this.setState({
+    phoneSubmit: phoneValue
+  },() =>{
+    if(this.state.phoneValue===null){
+      window.sessionStorage.setItem('phoneSubmit', '');
+    }else{
+      window.sessionStorage.setItem('phoneSubmit', this.state.phoneSubmit);
+    }
+  });
+}
 
 handleSizeChange(e) {
   let sizeValue = e.target.value;
@@ -108,6 +127,7 @@ handlePriceChange(e) {
         {/* Price Field */}
         <FormControl variant="outlined" style={{marginTop:'40px'}} className={classes.formControl}>
             <Typography className='fieldTitle' variant='display1' gutterBottom>Price (€)</Typography>
+
                     <TextField
                     id="outlined-bare"
                     // className={classes.textField}
@@ -123,6 +143,7 @@ handlePriceChange(e) {
         {/* Size Field */}
         <FormControl variant="outlined"  style={{marginTop:'40px'}} className={classes.formControl}>
             <Typography className='fieldTitle' variant='display1' gutterBottom>Size (m2)</Typography>
+
         </FormControl>
         <FormControl>
         <TextField
@@ -161,6 +182,28 @@ handlePriceChange(e) {
                   <MenuItem value={'Kentro'} className="MenuItem">Kentro</MenuItem>
                 </Select>
         </FormControl>
+
+
+        {/* Phone Field */}
+        <FormControl variant="outlined"  style={{marginTop:'40px'}} className={classes.formControl}>
+            <Typography className='fieldTitle' variant='display1' gutterBottom>Your Phone</Typography>
+
+        </FormControl>
+        <FormControl>
+        <TextField
+        id="outlined-bare"
+        // className={classes.textField}
+        type='number'
+        defaultValue={this.state.phoneSubmit}
+        margin="normal"
+        variant="outlined"
+        className='phone'
+        onChange={this.handlePhoneNumber}
+
+      />
+        </FormControl>
+
+
       </form>
 
     );
