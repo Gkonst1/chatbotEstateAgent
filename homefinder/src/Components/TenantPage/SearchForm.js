@@ -27,14 +27,16 @@ const styles = theme => ({
   },
   selectEmpty: {
     marginTop: theme.spacing.unit * 4,
+  },  
+  textField: {
+    marginLeft: theme.spacing.unit * 1,
+    marginRight: theme.spacing.unit * 1,
   }
 });
 
 
 
 class SimpleSelect extends React.Component {
-
- 
 
   constructor(props){
     super();
@@ -44,23 +46,27 @@ class SimpleSelect extends React.Component {
       size:sessionStorage.getItem('size'),
       location:sessionStorage.getItem('location'),
       status:sessionStorage.getItem('status'),
-    }
+    }  
+
+    this.handleSizeChange = this.handleSizeChange.bind(this);
+    this.handlePriceChange = this.handlePriceChange.bind(this);
   }
+
 
 
 
    handleChange = async (event) => {
      await this.setState({ [event.target.name]: event.target.value});
+    //  console.log(event.target.name, event.target.value);
      if(this.state.price===null){
        window.sessionStorage.setItem('price', '')
      }else{
        window.sessionStorage.setItem('price', this.state.price);
-     }
-     if(this.state.size===null){
-       window.sessionStorage.setItem('size', '');
-     }else{
-       window.sessionStorage.setItem('size', this.state.size);
-     }
+     }if(this.state.size===null){
+      window.sessionStorage.setItem('size', '');
+    }else{
+      window.sessionStorage.setItem('size', this.state.size);
+    }
      if(this.state.location===null){
        window.sessionStorage.setItem('location', '');
      }else{
@@ -68,31 +74,96 @@ class SimpleSelect extends React.Component {
      }
   }
 
-  handleChangeSize(event){
-     
-      console.log(event.target.value)
 
-      return function () {window.sessionStorage.setItem('size', this.state.size);
-        console.log(this.state.size + ' this is size')
-        if(this.state.size > 0){
-          window.sessionStorage.setItem('size', '')
-        }else{
-          window.sessionStorage.setItem('size', this.state.size);
-        }
-      }
-  };
 
+
+handleSizeChange(e) {
+  let sizeValue = e.target.value;
+  this.setState({
+    size: sizeValue
+  },() =>{
+    if(this.state.size===null){
+      window.sessionStorage.setItem('size', '');
+    }else{
+      window.sessionStorage.setItem('size', this.state.size);
+    }
+  
+    console.log(this.state.size)
+  });
+}
+
+handlePriceChange(e) {
+  let priceValue = e.target.value;
+  this.setState({
+    price: priceValue
+  },() =>{
+    if(this.state.price===null){
+      window.sessionStorage.setItem('price', '');
+    }else{
+      window.sessionStorage.setItem('price', this.state.price);
+    }
+  
+    console.log(this.state.price)
+  });
+}
+
+
+
+//   handleSizeChange(event) {
+//     console.log("Value from event:", event.target.value);
+
+//     this.setState({
+//       size: event.target.value
+//     }(), () => {
+//       console.log("New state in ASYNC callback:", this.state.size);
+//     });
+
+//     console.log("New state DIRECTLY after setState:", this.state.size);
+//   };
+// ;
+
+
+
+
+  // handleSizeChange(event){
+  //   event.preventDefault();
+  //   alert('Your current size is' +  this.input.value)
+  //   this.setState({size:event.target.value})
+  // }
+// handleSize(event){
+//   console.log('Value from event:');
+//   this.setState({
+//     size:event.target.value
+//   },()=>{
+//     console.log('New state in Async callback:', event.target.value);
+//   });
+//   console.log('New state DIRECTLY after the setState', this.state.size);
+// }
+
+
+
+
+  // handleSize(value){
+  //   this.setState({
+  //     size:value
+  //   });
+  //   if(this.state.size===null){
+  //     window.sessionStorage.setItem('size', '');
+  //   }else{
+  //     window.sessionStorage.setItem('size', this.state.size);
+  //   }
+  // }
 
   render() {
     let input;
-    const { classes } = this.props;
+    const { classes, size } = this.props;
     return (
       <form className={classes.root} autoComplete="off">
 
         {/* Price Field */}
         <FormControl variant="outlined" style={{marginTop:'40px'}} className={classes.formControl}>
             <Typography className='fieldTitle' variant='display1' gutterBottom>Price (€)</Typography>
-                <Select
+                {/* <Select
                   value={this.state.price}
                   price={this.state.price}
                   onChange={this.handleChange}
@@ -116,14 +187,25 @@ class SimpleSelect extends React.Component {
                   <MenuItem value={500} className="MenuItem">500</MenuItem>
                   <MenuItem value={600} className="MenuItem">600</MenuItem>
                   <MenuItem value={700} className="MenuItem">700</MenuItem>
-                </Select>
+                </Select> */}
+                    <TextField
+                    id="outlined-bare"
+                    // className={classes.textField}
+                    type='number'
+                    defaultValue={this.state.price}
+                    margin="normal"
+                    variant="outlined"
+                    className='price'
+                    onChange={this.handlePriceChange}
+                    // ref={(input) => this.input = input}
+                   />
         </FormControl>
 
 
         {/* Size Field */}
         <FormControl variant="outlined"  style={{marginTop:'40px'}} className={classes.formControl}>
             <Typography className='fieldTitle' variant='display1' gutterBottom>Size (m2)</Typography>
-                <Select
+                {/* <Select
                   value={this.state.size}
                   onChange={this.handleChange}
                   input={
@@ -146,47 +228,23 @@ class SimpleSelect extends React.Component {
                   <MenuItem value={120} className="MenuItem">120+</MenuItem>
                   <MenuItem value={150} className="MenuItem">150+</MenuItem>
 
-                </Select>
-           {/* <TextField
-              id="outlined-bare"
-              className='SelectedMenuItem'
-            
-              margin="normal"
-              variant="outlined"
-              // onChange={this.handleChangeSize}
-              // defaultValue={this.state.size}
-              // value={this.state.size}
-              onChange={this.handleChangeSize}
-           
-              input={
-                
-                <OutlinedInput
-              
-              
-                  labelWidth={this.state.labelWidth}
-                  name="size"
-
-                />
-              }
-              />
-
- */}
-
-          {/* <TextField
-          id="standard-number"
-          label="Number"
-          value={this.state.size}
-          onChange={this.handleChangeSize}
-          type="number"
-       
-          InputLabelProps={{
-            shrink: true,
-          }}
-          margin="normal"
-          />
-                 */}
-          
+                </Select> */}
         </FormControl>
+        <FormControl>
+        <TextField
+        id="outlined-bare"
+        // className={classes.textField}
+        type='number'
+        defaultValue={this.state.size}
+        margin="normal"
+        variant="outlined"
+        className='size'
+        onChange={this.handleSizeChange}
+        // ref={(input) => this.input = input}
+      />
+        </FormControl>
+
+
 
 
         {/* Location Field */}
@@ -199,7 +257,6 @@ class SimpleSelect extends React.Component {
                     <OutlinedInput
                       labelWidth={this.state.labelWidth}
                       name="location"
-
                     />
                   }
                   className='SelectedMenuItem'
