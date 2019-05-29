@@ -77,16 +77,19 @@ class SimpleSelect extends React.Component {
 
 
 handleSizeChange(e) {
+  let sizeValue = e.target.value;
   this.setState({
-    size: e.target.value
+    size: sizeValue
+  },() =>{
+    if(this.state.size===null){
+      window.sessionStorage.setItem('size', '');
+    }else{
+      window.sessionStorage.setItem('size', this.state.size);
+    }
+  
+    console.log(this.state.size)
   });
-  if(this.state.size===null){
-    window.sessionStorage.setItem('size', '');
-  }else{
-    window.sessionStorage.setItem('size', this.state.size);
-  }
-
-  console.log(this.state.size)
+  
 }
 
 
