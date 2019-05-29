@@ -30,6 +30,14 @@ const styles = theme => ({
     float: 'left',
     marginLeft: '2%',
     marginTop: '0.3%',
+  },
+  smallLogo2:{
+    width: '4%',
+    height: '60px',
+    float: 'right',
+    marginRight: '4%',
+    marginTop: '0.3%',
+    backgroundColor: '#f16c51',
   }
 });
 
@@ -39,7 +47,7 @@ function CenteredGrid(props) {
       <div className={classes.root}>
         <Grid container spacing={24}>
           <Grid item xs={12}>
-            <Paper className={classes.paper}><Link to='/' className={classes.paper}><img className={classes.smallLogo} src={logo} alt="logo"/>Home Finder</Link></Paper>
+            <Paper className={classes.paper}><Link to='/' className={classes.paper}><img className={classes.smallLogo} src={logo} alt="logo"/>Home Finder</Link><img className={classes.smallLogo2} src="" alt=""/></Paper>
           </Grid>
         </Grid>
       </div>
