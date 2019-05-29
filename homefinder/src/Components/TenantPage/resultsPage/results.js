@@ -32,7 +32,7 @@ class Results extends React.Component{
     super(props);
     this.state={
         houses:[],
-        price:100,
+        price:0,
 				noResults: false,
     }
   }
@@ -84,7 +84,7 @@ class Results extends React.Component{
       <Fragment>
         <Header/>
 
-        <Grid container style={{marginLeft:'15%', marginRight:'15%',display:'flex',flexWrap:'wrap-reverse'}}>
+        <Grid container style={{display:'flex',flexWrap:'wrap-reverse'}}>
           <Scrollbar style={{width: '50%',minWidth:'300px',
           height: '90vh',direction:'ltr'}} rtl>
             <Grid item xs={12} sm={12} md={6} lg={6}  className="rightPanel" style={{maxWidth:'100%',paddingRight:'10px',paddingLeft:'2vh'}}>
