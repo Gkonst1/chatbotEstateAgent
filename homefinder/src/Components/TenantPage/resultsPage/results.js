@@ -49,8 +49,7 @@ class Results extends React.Component{
     })
     .then(response=>{
       this.setState({houses:response.data});
-        console.log(response);
-				if(response.data.length==0){
+				if(response.data.length===0){
 					this.setState({noResults: true});
 				}
     	}

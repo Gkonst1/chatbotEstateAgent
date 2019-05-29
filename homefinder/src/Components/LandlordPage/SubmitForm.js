@@ -17,7 +17,7 @@ const styles = theme => ({
     flexWrap: 'wrap',
 		width:'30vh',
     flexDirection: 'column',
-    alignSelf: "center"
+    alignSelf: "center",
   },
   formControl: {
     margin: theme.spacing.unit,
@@ -54,7 +54,6 @@ class SimpleSelect extends React.Component {
 
 
 
-
    handleChange = async (event) => {
      await this.setState({ [event.target.name]: event.target.value});
     //  console.log(event.target.name, event.target.value);
@@ -76,7 +75,6 @@ class SimpleSelect extends React.Component {
 
 
 
-
 handleSizeChange(e) {
   let sizeValue = e.target.value;
   this.setState({
@@ -87,8 +85,6 @@ handleSizeChange(e) {
     }else{
       window.sessionStorage.setItem('sizeSubmit', this.state.sizeSubmit);
     }
-
-    console.log(this.state.sizeSubmit)
   });
 }
 
@@ -102,92 +98,16 @@ handlePriceChange(e) {
     }else{
       window.sessionStorage.setItem('priceSubmit', this.state.priceSubmit);
     }
-
-    console.log(this.state.priceSubmit)
   });
 }
-
-
-
-//   handleSizeChange(event) {
-//     console.log("Value from event:", event.target.value);
-
-//     this.setState({
-//       size: event.target.value
-//     }(), () => {
-//       console.log("New state in ASYNC callback:", this.state.size);
-//     });
-
-//     console.log("New state DIRECTLY after setState:", this.state.size);
-//   };
-// ;
-
-
-
-
-  // handleSizeChange(event){
-  //   event.preventDefault();
-  //   alert('Your current size is' +  this.input.value)
-  //   this.setState({size:event.target.value})
-  // }
-// handleSize(event){
-//   console.log('Value from event:');
-//   this.setState({
-//     size:event.target.value
-//   },()=>{
-//     console.log('New state in Async callback:', event.target.value);
-//   });
-//   console.log('New state DIRECTLY after the setState', this.state.size);
-// }
-
-
-
-
-  // handleSize(value){
-  //   this.setState({
-  //     size:value
-  //   });
-  //   if(this.state.size===null){
-  //     window.sessionStorage.setItem('size', '');
-  //   }else{
-  //     window.sessionStorage.setItem('size', this.state.size);
-  //   }
-  // }
-
   render() {
-    let input;
-    const { classes, size } = this.props;
+    const { classes } = this.props;
     return (
       <form className={classes.root} autoComplete="off">
 
         {/* Price Field */}
         <FormControl variant="outlined" style={{marginTop:'40px'}} className={classes.formControl}>
             <Typography className='fieldTitle' variant='display1' gutterBottom>Price (€)</Typography>
-                {/* <Select
-                  value={this.state.price}
-                  price={this.state.price}
-                  onChange={this.handleChange}
-                  className='price'
-                  input={
-                    <OutlinedInput
-                      labelWidth={this.state.labelWidth}
-                      name="price"
-
-                    />
-                  }
-                  className='SelectedMenuItem'
-                >
-                  <MenuItem value="" className="MenuItem">
-                    <em>None</em>
-                  </MenuItem>
-                  <MenuItem value={100} className="MenuItem">100</MenuItem>
-                  <MenuItem value={200} className="MenuItem" >200</MenuItem>
-                  <MenuItem value={300} className="MenuItem">300</MenuItem>
-                  <MenuItem value={400} className="MenuItem">400</MenuItem>
-                  <MenuItem value={500} className="MenuItem">500</MenuItem>
-                  <MenuItem value={600} className="MenuItem">600</MenuItem>
-                  <MenuItem value={700} className="MenuItem">700</MenuItem>
-                </Select> */}
                     <TextField
                     id="outlined-bare"
                     // className={classes.textField}
@@ -197,55 +117,24 @@ handlePriceChange(e) {
                     variant="outlined"
                     className='price'
                     onChange={this.handlePriceChange}
-                    // ref={(input) => this.input = input}
                    />
         </FormControl>
-
 
         {/* Size Field */}
         <FormControl variant="outlined"  style={{marginTop:'40px'}} className={classes.formControl}>
             <Typography className='fieldTitle' variant='display1' gutterBottom>Size (m2)</Typography>
-                {/* <Select
-                  value={this.state.size}
-                  onChange={this.handleChange}
-                  input={
-                    <OutlinedInput
-                      labelWidth={this.state.labelWidth}
-                      name="size"
-
-                    />
-                  }
-                  className='SelectedMenuItem'
-                >
-                  <MenuItem value="" className="MenuItem">
-                    <em>None</em>
-                  </MenuItem>
-                  <MenuItem value={30} className="MenuItem">30+</MenuItem>
-                  <MenuItem value={50} className="MenuItem" >50+</MenuItem>
-                  <MenuItem value={80} className="MenuItem">80+</MenuItem>
-                  <MenuItem value={90} className="MenuItem">90+</MenuItem>
-                  <MenuItem value={100} className="MenuItem">100+</MenuItem>
-                  <MenuItem value={120} className="MenuItem">120+</MenuItem>
-                  <MenuItem value={150} className="MenuItem">150+</MenuItem>
-
-                </Select> */}
         </FormControl>
         <FormControl>
         <TextField
         id="outlined-bare"
-        // className={classes.textField}
         type='number'
         defaultValue={this.state.sizeSubmit}
         margin="normal"
         variant="outlined"
         className='size'
         onChange={this.handleSizeChange}
-        // ref={(input) => this.input = input}
       />
         </FormControl>
-
-
-
 
         {/* Location Field */}
         <FormControl variant="outlined" style={{marginTop:'40px'}} className={classes.formControl}>

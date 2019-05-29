@@ -10,7 +10,7 @@ const noResultsStyle={
 	fontSize: '4em',
 	width: '100%',
 	marginTop: '20%',
-	direction: 'ltr'
+	direction: 'ltr',
 }
 const noResultsStyleImg={
 	width: '25%',
@@ -23,7 +23,7 @@ class NoResults extends React.Component{
     return(
         <div style={divStyle}>
             <h1 style={noResultsStyle}>I'm sorry... No Homes found, you can search again with different filters!</h1>
-						<img src={sadFace} style={noResultsStyleImg}/>
+						<img src={sadFace} style={noResultsStyleImg} alt='sad emoji'/>
         </div>
     )
 }}

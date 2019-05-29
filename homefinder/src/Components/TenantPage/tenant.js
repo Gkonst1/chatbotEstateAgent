@@ -16,7 +16,6 @@ const styles= {
   rightIcon:{marginleft:30},
   leftPanel:{ height:'100%',justify:'center'},
   rightPanel:{padding:29},
-
 }
 
 class Tenant extends React.Component{
@@ -38,7 +37,7 @@ class Tenant extends React.Component{
 
 
         {/* Left Panel */}
-        <Grid item xs={12} >
+        <Grid item xs={12}>
           <SearchTypeButtons/>
           <SearchForm/>
         </Grid>
@@ -52,7 +51,7 @@ class Tenant extends React.Component{
 
           <Grid item xs={12} className="submit-box" style={{textAlign:'center'}}>
                <Link to='/results'>
-               <Button onSubmit={<Link to='/results'><p className="results" onClick={this.handleSubmit}>Your Results</p></Link>} variant="contained" className="single-button" elevation='0' size="large"  style={
+               <Button onSubmit={this.handleSubmit} variant="contained" className="single-button" elevation='0' size="large"  style={
                     {width:'20%',
                     fontSize:19,
                     marginTop:75,
