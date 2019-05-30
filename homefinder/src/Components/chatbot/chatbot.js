@@ -46,7 +46,7 @@ class Review extends React.Component {
 
 	handleSubmit = ()=> {
     if (window.location!=="http://localhost:3000/results"){
-			window.location="http://localhost:3000/results";
+			window.location="http://localhost:3000/tenant/results";
     }
     else{
       window.location.reload();
