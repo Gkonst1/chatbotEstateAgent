@@ -117,7 +117,7 @@ handlePriceChange(e) {
                     id="outlined-bare"
                     type='number'
                     defaultValue={this.state.price}
-                    margin="normal"
+                    margin="none"
                     variant="outlined"
                     className='price'
                     onChange={this.handlePriceChange}
@@ -132,7 +132,7 @@ handlePriceChange(e) {
         id="outlined-bare"
         type='number'
         defaultValue={this.state.size}
-        margin="normal"
+        margin="none"
         variant="outlined"
         className='size'
         onChange={this.handleSizeChange}

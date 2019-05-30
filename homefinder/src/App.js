@@ -26,8 +26,8 @@ class App extends Component {
   				<Route exact path='/' component={Home}/>
   				<Route exact path='/landlord' component={Landlord}/>
   				<Route exact path='/tenant' component={Tenant}/>
-					<Route exact path='/results' component={Results}/>
-          <Route exact path='/yourEntry' component={YourEntry}/>
+					<Route exact path='/tenant/results' component={Results}/>
+          <Route exact path='/landlord/yourEntry' component={YourEntry}/>
 				</Switch>
       </div>
     );

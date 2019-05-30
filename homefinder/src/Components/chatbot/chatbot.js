@@ -53,7 +53,7 @@ class Review extends React.Component {
     }
 	}
   render() {
-    return   <p className="results"       onClick={this.handleSubmit}>Press here to see your results!</p>
+    return   <p className="results" onClick={this.handleSubmit}>Press here to see your results!</p>
 	};
 }
 

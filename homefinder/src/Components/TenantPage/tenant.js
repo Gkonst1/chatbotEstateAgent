@@ -50,15 +50,14 @@ class Tenant extends React.Component{
           <Fragment>
 
           <Grid item xs={12} className="submit-box" style={{textAlign:'center'}}>
-               <Link to='/results'>
+               <Link to='/tenant/results' style={{textDecorationLine:'none'}}>
                <Button onSubmit={this.handleSubmit} variant="contained" className="single-button" elevation='0' size="large"  style={
-                    {width:'20%',
+                    {width:'10%',
                     fontSize:19,
-                    marginTop:75,
+                    marginTop:20,
                     fontWeight:'700',
                     color:'white',
                     backgroundColor:'#f16c51',
-                    textDecorationLine:'none'
                      }}>
                    SEARCH
                   </Button>

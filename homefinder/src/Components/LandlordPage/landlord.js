@@ -1,7 +1,6 @@
 import React, {Fragment} from "react";
 import Header from '../header';
 import '../TenantPage/tenant.scss';
-import { Link } from 'react-router-dom';
 import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
@@ -12,13 +11,37 @@ import Chatbot from '../chatbot/chatbot';
 
 const styles= {
  paper:{padding:20, margin:20, textAlign:'center',justifyContent:'center'},
- text:{color:'#000', fontWeight:600},
+ text:{color:'#000', fontWeight:600,margin: '0'},
  rightIcon:{marginleft:30},
  leftPanel:{ height:'100%',justify:'center'},
  rightPanel:{padding:29},
 }
 
+const validation= function(){
+  const price=window.sessionStorage.getItem('priceSubmit');
+  let size=window.sessionStorage.getItem('sizeSubmit');
+  let location=window.sessionStorage.getItem('locationSubmit');
+  let status=window.sessionStorage.getItem('statusSubmit');
+  let contact=window.sessionStorage.getItem('phoneSubmit');
+  if(price===null || size===null || location===null || status===null || contact===null || price==='' || size==='' || location==='' || status==='' || contact===''){
+    alert('Sorry you should fill all the fields!');
+  }else{
+    if(price<=0 || size<=0 || contact<=0){
+      alert(`Price size and contact can't be megative numbers or 0. Please try again!`);
+    }else{
+      let phone = contact.toString(10).replace(/\D/g, '0').split('').map(Number);
+      if(phone.length!==10){
+        alert(`Please enter a greek phone number!`);
+      }else{
+        window.location='http://localhost:3000/landlord/yourEntry';
+      }
+    }
+  }
+}
+
 class Landlord extends React.Component{
+
+
  render(){
    return(<Fragment>
      <Header/>
@@ -32,7 +55,7 @@ class Landlord extends React.Component{
            </Paper>
          </Grid>
        {/* Left Panel */}
-       <Grid item xs={12} >
+       <Grid item xs={12}>
          <StatusButtons/>
          <SubmitForm/>
        </Grid>
@@ -43,19 +66,16 @@ class Landlord extends React.Component{
          <Fragment>
 
          <Grid item xs={12} className="submit-box" style={{textAlign:'center'}}>
-              <Link to='/yourEntry'>
-              <Button onSubmit={this.handlesubmit} variant="contained" className="single-button" elevation='0' size="large"  style={
-                   {width:'20%',
+              <Button onClick={validation} variant="contained" className="single-button" elevation='0' size="large"  style={
+                   {width:'10%',
                    fontSize:19,
-                   marginTop:75,
+                   marginTop:20,
                    fontWeight:'700',
                    color:'white',
                    backgroundColor:'#f16c51',
-                   textDecorationLine:'none'
                     }}>
                   Submit
                  </Button>
-                 </Link>
                </Grid>
 
          </Fragment>

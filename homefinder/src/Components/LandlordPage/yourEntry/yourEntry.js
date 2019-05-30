@@ -2,36 +2,46 @@ import React from "react";
 import './yourEntry.css';
 import Header from '../../header';
 import SingleEntity from '../../TenantPage/resultsPage/SingleEntity';
-import image from '../../../icons and colors/image.jpg'
+import image from '../../../icons and colors/image.jpg';
+import Button from '@material-ui/core/Button';
+import { Link } from 'react-router-dom';
+import '../../TenantPage/tenant.scss';
+import axios from 'axios';
 
-
-// componentDidMount(){
-//   axios.post('https://vikings-chatbot.herokuapp.com/house/results',{
-//     params:{
-//       toPrice: sessionStorage.getItem('priceSubmit'),
-//       fromSize: sessionStorage.getItem('sizeSubmit'),
-//       location: sessionStorage.getItem("locationSubmit"),
-//       status: sessionStorage.getItem("statusSubmit")
-//     }
-//
-//   })
-//   .then(response=>{
-//     this.setState({houses:response.data});
-//       console.log(response);
-//       if(response.data.length==0){
-//         this.setState({noResults: true});
-//       }
-//     }
-//   );
-//   showPage();
-// }
 
 class YourEntry extends React.Component{
+  constructor(props){
+    super(props);
+    this.state={
+      entry: [],
+    }
+  }
+
+  componentDidMount(){
+      axios.get('http://localhost:8080/add',{
+        params:{
+          price: sessionStorage.getItem('priceSubmit'),
+          size: sessionStorage.getItem('sizeSubmit'),
+          location: sessionStorage.getItem('locationSubmit'),
+          status: sessionStorage.getItem('statusSubmit'),
+          contact: sessionStorage.getItem('phoneSubmit')
+        }
+
+      }
+    )
+      .then(response=>{
+        console.log(response);
+        this.setState({entry:response.data});
+        }
+      );
+  }
+
   render(){
     const price=window.sessionStorage.getItem('priceSubmit');
     const size=window.sessionStorage.getItem('sizeSubmit');
     const location=window.sessionStorage.getItem('locationSubmit');
     const status=window.sessionStorage.getItem('statusSubmit');
+    const contact=window.sessionStorage.getItem('phoneSubmit');
     return(
       <div>
         <Header/>
@@ -39,8 +49,18 @@ class YourEntry extends React.Component{
           <h1 className="yourEntry">Your Entry</h1>
           <div className="singleEntry">
           <SingleEntity
-						price={price} location={location} size={size}  contact='6948764634' status={status} image={image}
+						price={price} location={location} size={size}  contact={contact} status={status} image={image}
 					/></div>
+          <Link to='/landlord' style={{textDecorationLine:'none'}}><Button variant="contained" className="single-button" elevation='0' size="large"  style={
+               {width:'20%',
+               fontSize:15,
+               marginTop:20,
+               fontWeight:'700',
+               color:'white',
+               backgroundColor:'#f16c51',
+                }}>
+              Add More Houses!
+             </Button></Link>
         </div>
       </div>
     )

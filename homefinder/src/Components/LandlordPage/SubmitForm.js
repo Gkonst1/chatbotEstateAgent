@@ -130,13 +130,13 @@ handlePriceChange(e) {
 
                     <TextField
                     id="outlined-bare"
-                    // className={classes.textField}
                     type='number'
                     defaultValue={this.state.priceSubmit}
-                    margin="normal"
+                    margin="none"
                     variant="outlined"
                     className='price'
                     onChange={this.handlePriceChange}
+                    placeholder="e.g. 400"
                    />
         </FormControl>
 
@@ -151,12 +151,32 @@ handlePriceChange(e) {
         id="outlined-bare"
         type='number'
         defaultValue={this.state.sizeSubmit}
-        margin="normal"
+        margin="none"
         variant="outlined"
         className='size'
         onChange={this.handleSizeChange}
+        placeholder="e.g. 40"
       />
         </FormControl>
+
+        {/* Phone Field */}
+        <FormControl variant="outlined"  style={{marginTop:'25px'}} className={classes.formControl}>
+            <Typography className='fieldTitle' variant='display1' gutterBottom>Your Phone</Typography>
+
+        </FormControl>
+        <FormControl>
+        <TextField
+        id="outlined-bare"
+        type='tel'
+        defaultValue={this.state.phoneSubmit}
+        margin="none"
+        variant="outlined"
+        className='phone'
+        onChange={this.handlePhoneNumber}
+        placeholder="e.g. 6955555555"
+      />
+        </FormControl>
+
 
         {/* Location Field */}
         <FormControl variant="outlined" style={{marginTop:'25px'}} className={classes.formControl}>
@@ -183,25 +203,6 @@ handlePriceChange(e) {
                   <MenuItem value={'Kentro'} className="MenuItem">Kentro</MenuItem>
                 </Select>
         </FormControl>
-
-
-        {/* Phone Field */}
-        <FormControl variant="outlined"  style={{marginTop:'25px'}} className={classes.formControl}>
-            <Typography className='fieldTitle' variant='display1' gutterBottom>Your Phone</Typography>
-
-        </FormControl>
-        <FormControl>
-        <TextField
-        id="outlined-bare"
-        type='number'
-        defaultValue={this.state.phoneSubmit}
-        margin="normal"
-        variant="outlined"
-        className='phone'
-        onChange={this.handlePhoneNumber}
-      />
-        </FormControl>
-
 
       </form>
 
