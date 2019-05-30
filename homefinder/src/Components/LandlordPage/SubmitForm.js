@@ -144,6 +144,7 @@ handlePriceChange(e) {
         <FormControl variant="outlined"  style={{marginTop:'40px'}} className={classes.formControl}>
             <Typography className='fieldTitle' variant='display1' gutterBottom>Size (m2)</Typography>
 
+
         </FormControl>
         <FormControl>
         <TextField
