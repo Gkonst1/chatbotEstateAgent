@@ -12,7 +12,7 @@ import Chatbot from '../chatbot/chatbot';
 
 const styles= {
  paper:{padding:20, margin:20, textAlign:'center',justifyContent:'center'},
- text:{color:'#000', fontWeight:600},
+ text:{color:'#000',fontSize:'5rem', fontWeight:900 , paddingTop:'15px'},
  rightIcon:{marginleft:30},
  leftPanel:{ height:'100%',justify:'center'},
  rightPanel:{padding:29},
