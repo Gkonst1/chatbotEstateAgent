@@ -36,7 +36,7 @@ class YourEntry extends React.Component{
           location: sessionStorage.getItem('locationSubmit'),
           status: sessionStorage.getItem('statusSubmit'),
           contact: sessionStorage.getItem('phoneSubmit'),
-          link: sessionStorage.getItem('linkSubmit')
+          image: sessionStorage.getItem('linkSubmit')
         }
       }
     )
@@ -53,6 +53,7 @@ class YourEntry extends React.Component{
     const location=window.sessionStorage.getItem('locationSubmit');
     const status=window.sessionStorage.getItem('statusSubmit');
     const contact=window.sessionStorage.getItem('phoneSubmit');
+    const link=window.sessionStorage.getItem('linkSubmit');
     return(
       <div>
         <Header/>
@@ -60,7 +61,7 @@ class YourEntry extends React.Component{
           <h1 className="yourEntry">Your Entry</h1>
           <div className="singleEntry">
           <SingleEntity
-						price={price} location={location} size={size}  contact={contact} status={status} image={image}
+						price={price} location={location} size={size}  contact={contact} status={status} image={link}
 					/></div>
           <Link to='/landlord' style={{textDecorationLine:'none'}}><Button variant="contained" className="single-button" onClick={clear} elevation='0' size="large"  style={
                {width:'20%',
