@@ -16,12 +16,9 @@ const styles= {
  rightIcon:{marginleft:30},
  leftPanel:{ height:'100%',justify:'center'},
  rightPanel:{padding:29},
-
 }
 
 class Landlord extends React.Component{
-
-
  render(){
    return(<Fragment>
      <Header/>
@@ -34,16 +31,11 @@ class Landlord extends React.Component{
            </Typography>
            </Paper>
          </Grid>
-
-
-
        {/* Left Panel */}
        <Grid item xs={12} >
          <StatusButtons/>
          <SubmitForm/>
        </Grid>
-
-
 
        {/* Right Panel */}
        <Grid item xs={12} style={{width:'90%'}}>
@@ -52,7 +44,7 @@ class Landlord extends React.Component{
 
          <Grid item xs={12} className="submit-box" style={{textAlign:'center'}}>
               <Link to='/yourEntry'>
-              <Button onSubmit={<Link to='/yourEntry'><p className="results" onClick={this.handleSubmit}>Your Entry</p></Link>} variant="contained" className="single-button" elevation='0' size="large"  style={
+              <Button onSubmit={this.handlesubmit} variant="contained" className="single-button" elevation='0' size="large"  style={
                    {width:'20%',
                    fontSize:19,
                    marginTop:75,

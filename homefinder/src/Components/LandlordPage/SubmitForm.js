@@ -17,7 +17,7 @@ const styles = theme => ({
     flexWrap: 'wrap',
 		width:'30vh',
     flexDirection: 'column',
-    alignSelf: "center"
+    alignSelf: "center",
   },
   formControl: {
     margin: theme.spacing.unit,
@@ -56,7 +56,6 @@ class SimpleSelect extends React.Component {
 
 
 
-
    handleChange = async (event) => {
      await this.setState({ [event.target.name]: event.target.value});
     //  console.log(event.target.name, event.target.value);
@@ -92,8 +91,6 @@ handlePhoneNumber(e){
     }else{
       window.sessionStorage.setItem('phoneSubmit', this.state.phoneSubmit);
     }
-
-    console.log(this.state.phoneSubmit)
   });
 }
 
@@ -107,8 +104,6 @@ handleSizeChange(e) {
     }else{
       window.sessionStorage.setItem('sizeSubmit', this.state.sizeSubmit);
     }
-
-    console.log(this.state.sizeSubmit)
   });
 }
 
@@ -122,20 +117,17 @@ handlePriceChange(e) {
     }else{
       window.sessionStorage.setItem('priceSubmit', this.state.priceSubmit);
     }
-
-    console.log(this.state.priceSubmit)
   });
 }
   render() {
-    let input;
-    const { classes, size } = this.props;
+    const { classes } = this.props;
     return (
       <form className={classes.root} autoComplete="off">
 
         {/* Price Field */}
         <FormControl variant="outlined" style={{marginTop:'40px'}} className={classes.formControl}>
             <Typography className='fieldTitle' variant='display1' gutterBottom>Price (€)</Typography>
-              
+
                     <TextField
                     id="outlined-bare"
                     // className={classes.textField}
@@ -145,32 +137,25 @@ handlePriceChange(e) {
                     variant="outlined"
                     className='price'
                     onChange={this.handlePriceChange}
-                    // ref={(input) => this.input = input}
                    />
         </FormControl>
-
 
         {/* Size Field */}
         <FormControl variant="outlined"  style={{marginTop:'40px'}} className={classes.formControl}>
             <Typography className='fieldTitle' variant='display1' gutterBottom>Size (m2)</Typography>
-               
+
         </FormControl>
         <FormControl>
         <TextField
         id="outlined-bare"
-        // className={classes.textField}
         type='number'
         defaultValue={this.state.sizeSubmit}
         margin="normal"
         variant="outlined"
         className='size'
         onChange={this.handleSizeChange}
-        // ref={(input) => this.input = input}
       />
         </FormControl>
-
-
-
 
         {/* Location Field */}
         <FormControl variant="outlined" style={{marginTop:'40px'}} className={classes.formControl}>
@@ -202,19 +187,19 @@ handlePriceChange(e) {
         {/* Phone Field */}
         <FormControl variant="outlined"  style={{marginTop:'40px'}} className={classes.formControl}>
             <Typography className='fieldTitle' variant='display1' gutterBottom>Your Phone</Typography>
-               
+
         </FormControl>
         <FormControl>
         <TextField
         id="outlined-bare"
         // className={classes.textField}
         type='number'
-        defaultValue={this.state.sizeSubmit}
+        defaultValue={this.state.phoneSubmit}
         margin="normal"
         variant="outlined"
         className='phone'
         onChange={this.handlePhoneNumber}
-                  
+
       />
         </FormControl>
 

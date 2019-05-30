@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import './chatbot.css';
 import bot from '../../icons and colors/chatbot.png';
 import ChatBot from 'react-simple-chatbot';
-import { Link } from 'react-router-dom';
 import Chatboticon from './chatboticon';
 
 class Review extends React.Component {
@@ -54,7 +53,7 @@ class Review extends React.Component {
     }
 	}
   render() {
-    return <Link to='/results'><p className="results" onClick={this.handleSubmit}>Press here to see your results!</p></Link>;
+    return   <p className="results"       onClick={this.handleSubmit}>Press here to see your results!</p>
 	};
 }
 
@@ -62,7 +61,7 @@ Review.propTypes = {
   steps: PropTypes.object,
 };
 Review.defaultProps = {
-  steps: "",
+  steps: {},
 };
 
 const string_to_array = function (str) {

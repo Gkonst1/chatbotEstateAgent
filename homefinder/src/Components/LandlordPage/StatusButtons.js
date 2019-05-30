@@ -48,7 +48,7 @@ class RadioButtonsGroup extends React.Component {
             onChange={this.handleChange}
           >
             <FormControlLabel className="SingleBtn mr-util" value="Rent" control={<Radio/>} label={<Typography style={{color:'white'}} variant="display1">Rent</Typography>} />
-            <FormControlLabel className="SingleBtn" value="Buy" control={<Radio />} label={<Typography style={{color:'white'}} variant="display1">Buy</Typography>} />
+            <FormControlLabel className="SingleBtn" value="Buy" control={<Radio />} label={<Typography style={{color:'white'}} variant="display1">Sale</Typography>} />
           </RadioGroup>
         </FormControl>
 

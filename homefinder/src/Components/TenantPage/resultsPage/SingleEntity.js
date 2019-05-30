@@ -24,23 +24,23 @@ const SingleEntity = (props) =>(
             <Grid item xs={12} className="entityDescription" >
 
                 <Grid item xs={4} className="entityDescription_singleItem">
-                  <img className='singleEntityIcon' src={Pin} alt="location:" className="icon"></img>{props.location}
+                  <img src={Pin} alt="location:" className="icon"></img>{props.location}
                 </Grid>
 
                 <Grid item xs={4} className="entityDescription_singleItem">
-                    <img className='singleEntityIcon' src={Size} alt='Size:' className='icon'></img> {props.size}m2
+                    <img src={Size} alt='Size:' className='icon'></img> {props.size}m2
                 </Grid>
                 <Grid item xs={4} className="entityDescription_singleItem">
-                    <img className='singleEntityIcon' src={Euro} alt='price: ' className='icon'></img>{props.price}
+                    <img src={Euro} alt='price: ' className='icon'></img>{props.price}
                 </Grid>
 
 
                 <Grid item xs={6} className="entityDescription_singleItem">
-                  <img className='singleEntityIcon' src={Phone} alt="contact:" className="icon"></img>{props.contact}
+                  <img src={Phone} alt="contact:" className="icon"></img>{props.contact}
                 </Grid>
 
                 <Grid item xs={4} className="entityDescription_singleItem">
-                    <img className='singleEntityIcon' src={Check} alt='status:' className='icon'></img> {props.status}
+                    <img src={Check} alt='status:' className='icon'></img> {props.status}
                 </Grid>
             </Grid>
 
