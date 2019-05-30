@@ -9,6 +9,17 @@ import '../../TenantPage/tenant.scss';
 import axios from 'axios';
 
 
+const clear=function(){
+  var clear='';
+  window.sessionStorage.setItem('priceSubmit', clear);
+  window.sessionStorage.setItem('sizeSubmit', clear);
+  window.sessionStorage.setItem('statusSubmit', clear);
+  window.sessionStorage.setItem('priceSubmit', clear);
+  window.sessionStorage.setItem('linkSubmit', clear);
+  window.sessionStorage.setItem('phoneSubmit', clear);
+}
+
+
 class YourEntry extends React.Component{
   constructor(props){
     super(props);
@@ -24,9 +35,9 @@ class YourEntry extends React.Component{
           size: sessionStorage.getItem('sizeSubmit'),
           location: sessionStorage.getItem('locationSubmit'),
           status: sessionStorage.getItem('statusSubmit'),
-          contact: sessionStorage.getItem('phoneSubmit')
+          contact: sessionStorage.getItem('phoneSubmit'),
+          link: sessionStorage.getItem('linkSubmit')
         }
-
       }
     )
       .then(response=>{
@@ -51,7 +62,7 @@ class YourEntry extends React.Component{
           <SingleEntity
 						price={price} location={location} size={size}  contact={contact} status={status} image={image}
 					/></div>
-          <Link to='/landlord' style={{textDecorationLine:'none'}}><Button variant="contained" className="single-button" elevation='0' size="large"  style={
+          <Link to='/landlord' style={{textDecorationLine:'none'}}><Button variant="contained" className="single-button" onClick={clear} elevation='0' size="large"  style={
                {width:'20%',
                fontSize:15,
                marginTop:20,

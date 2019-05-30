@@ -46,13 +46,15 @@ class SimpleSelect extends React.Component {
       sizeSubmit:sessionStorage.getItem('sizeSubmit'),
       locationSubmit:sessionStorage.getItem('locationSubmit'),
       statusSubmit:sessionStorage.getItem('statusSubmit'),
-      phoneSubmit:sessionStorage.getItem('phoneSubmit')
+      phoneSubmit:sessionStorage.getItem('phoneSubmit'),
+      linkSubmit:sessionStorage.getItem('linkSubmit')
     }
 
     this.handleSizeChange = this.handleSizeChange.bind(this);
     this.handlePriceChange = this.handlePriceChange.bind(this);
     this.handlePhoneNumber = this.handlePhoneNumber.bind(this);
-  }
+    this.handleLink=this.handleLink.bind(this);
+    }
 
 
 
@@ -78,6 +80,11 @@ class SimpleSelect extends React.Component {
     }else{
       window.sessionStorage.setItem('phoneSubmit', this.state.phoneSubmit);
     }
+    if(this.state.handleLink===null){
+      window.sessionStorage.setItem('linkSubmit', '');
+    }else{
+      window.sessionStorage.setItem('linkSubmit', this.state.linkSubmit);
+    }
   }
 
 
@@ -94,6 +101,7 @@ handlePhoneNumber(e){
   });
 }
 
+
 handleSizeChange(e) {
   let sizeValue = e.target.value;
   this.setState({
@@ -106,7 +114,18 @@ handleSizeChange(e) {
     }
   });
 }
-
+handleLink(e){
+  let linkValue = e.target.value;
+  this.setState({
+    linkSubmit: linkValue
+  },() =>{
+    if(this.state.linkSubmit===null){
+      window.sessionStorage.setItem('linkSubmit', '');
+    }else{
+      window.sessionStorage.setItem('linkSubmit', this.state.linkSubmit);
+    }
+  });
+}
 handlePriceChange(e) {
   let priceValue = e.target.value;
   this.setState({
@@ -203,6 +222,24 @@ handlePriceChange(e) {
                   <MenuItem value={'Kentro'} className="MenuItem">Kentro</MenuItem>
                 </Select>
         </FormControl>
+
+        {/* Image Field */}
+        <FormControl variant="outlined"  style={{marginTop:'25px'}} className={classes.formControl}>
+            <Typography className='fieldTitle' variant='display1' gutterBottom>Image Link</Typography>
+
+        </FormControl>
+        <FormControl>
+        <TextField
+        id="outlined-bare"
+        type='url'
+        defaultValue={this.state.linkSubmit}
+        margin="none"
+        variant="outlined"
+        className='link'
+        onChange={this.handleLink}
+      />
+        </FormControl>
+
 
       </form>
 

@@ -23,7 +23,8 @@ const validation= function(){
   let location=window.sessionStorage.getItem('locationSubmit');
   let status=window.sessionStorage.getItem('statusSubmit');
   let contact=window.sessionStorage.getItem('phoneSubmit');
-  if(price===null || size===null || location===null || status===null || contact===null || price==='' || size==='' || location==='' || status==='' || contact===''){
+  let link=window.sessionStorage.getItem('linkSubmit');
+  if(price===null || size===null || location===null || status===null || contact===null || link===null || price==='' || size==='' || location==='' || status==='' || contact==='' || link===''){
     alert('Sorry you should fill all the fields!');
   }else{
     if(price<=0 || size<=0 || contact<=0){
