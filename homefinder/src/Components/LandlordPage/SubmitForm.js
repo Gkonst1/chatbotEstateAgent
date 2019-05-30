@@ -125,7 +125,7 @@ handlePriceChange(e) {
       <form className={classes.root} autoComplete="off">
 
         {/* Price Field */}
-        <FormControl variant="outlined" style={{marginTop:'40px'}} className={classes.formControl}>
+        <FormControl variant="outlined" style={{marginTop:'25px'}} className={classes.formControl}>
             <Typography className='fieldTitle' variant='display1' gutterBottom>Price (€)</Typography>
 
                     <TextField
@@ -141,7 +141,7 @@ handlePriceChange(e) {
         </FormControl>
 
         {/* Size Field */}
-        <FormControl variant="outlined"  style={{marginTop:'40px'}} className={classes.formControl}>
+        <FormControl variant="outlined"  style={{marginTop:'25px'}} className={classes.formControl}>
             <Typography className='fieldTitle' variant='display1' gutterBottom>Size (m2)</Typography>
 
 
@@ -159,7 +159,7 @@ handlePriceChange(e) {
         </FormControl>
 
         {/* Location Field */}
-        <FormControl variant="outlined" style={{marginTop:'40px'}} className={classes.formControl}>
+        <FormControl variant="outlined" style={{marginTop:'25px'}} className={classes.formControl}>
             <Typography className='fieldTitle' variant='display1' gutterBottom>Location</Typography>
                 <Select
                   value={this.state.locationSubmit}
@@ -186,21 +186,19 @@ handlePriceChange(e) {
 
 
         {/* Phone Field */}
-        <FormControl variant="outlined"  style={{marginTop:'40px'}} className={classes.formControl}>
+        <FormControl variant="outlined"  style={{marginTop:'25px'}} className={classes.formControl}>
             <Typography className='fieldTitle' variant='display1' gutterBottom>Your Phone</Typography>
 
         </FormControl>
         <FormControl>
         <TextField
         id="outlined-bare"
-        // className={classes.textField}
         type='number'
         defaultValue={this.state.phoneSubmit}
         margin="normal"
         variant="outlined"
         className='phone'
         onChange={this.handlePhoneNumber}
-
       />
         </FormControl>
 
