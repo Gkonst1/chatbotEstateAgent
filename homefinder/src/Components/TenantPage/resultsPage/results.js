@@ -92,12 +92,11 @@ class Results extends React.Component{
           </Scrollbar>
             <Grid item xs={12} sm={12} md={6} lg={6}  className="leftPanel" style={styles.leftPanel}>
               <SearchForm/>
-              <Grid item xs={12} className="submit-box" style={{textAlign:'center'}}>
+              <Grid item xs={12} className="submit-box" style={{textAlign:'center', marginTop:'10%'}}>
 
                  <Button onClick={this.handleSubmit} variant="contained" className="single-button" elevation='0' size="large"  style={
-                      {width:'30%',
+                      {width:'20%',
                       fontSize:19,
-                      marginTop:130,
                       marginBottom:'30vh',
                       fontWeight:'700',
                       color:'white',

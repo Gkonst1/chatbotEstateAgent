@@ -15,7 +15,8 @@ const styles = theme => ({
   root: {
     display: 'flex',
     flexWrap: 'wrap',
-		width:'30vh',
+    // width:'30vh',
+    padding:0,
     flexDirection: 'column',
     alignSelf: "center",
   },
@@ -26,7 +27,7 @@ const styles = theme => ({
     textAlign:'center',
   },
   selectEmpty: {
-    marginTop: theme.spacing.unit * 4,
+    marginTop: theme.spacing.unit * 1,
   },
   textField: {
     marginLeft: theme.spacing.unit * 1,
